@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PersonDepartmentRelationMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.PersonDepartmentRelation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="person_department_relation" jdbcType="INTEGER" property="personDepartmentRelation" />
+    <result column="person_id" jdbcType="INTEGER" property="personId" />
+    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="in_department_level" jdbcType="VARCHAR" property="inDepartmentLevel" />
+    <result column="in_department_role" jdbcType="VARCHAR" property="inDepartmentRole" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.CheckingInGroupCoordinatesMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.CheckingInGroupCoordinates">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="coordinates_id" jdbcType="INTEGER" property="coordinatesId" />
+    <result column="coordinate_name" jdbcType="VARCHAR" property="coordinateName" />
+    <result column="checking_in_group_id" jdbcType="INTEGER" property="checkingInGroupId" />
+    <result column="coordinate_x" jdbcType="DOUBLE" property="coordinateX" />
+    <result column="coordinate_y" jdbcType="DOUBLE" property="coordinateY" />
+    <result column="coordinates" jdbcType="VARCHAR" property="coordinates" />
+  </resultMap>
+</mapper>

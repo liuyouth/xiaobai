@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.DepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Department">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="department_up_id" jdbcType="INTEGER" property="departmentUpId" />
+    <result column="department_charge_name" jdbcType="VARCHAR" property="departmentChargeName" />
+    <result column="department_charge_phone" jdbcType="INTEGER" property="departmentChargePhone" />
+    <result column="department_charge_email" jdbcType="VARCHAR" property="departmentChargeEmail" />
+    <result column="department_charge_id" jdbcType="INTEGER" property="departmentChargeId" />
+    <result column="team_id" jdbcType="INTEGER" property="teamId" />
+  </resultMap>
+</mapper>

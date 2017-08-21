@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.CheckLogMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.CheckLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="check_log_id" jdbcType="INTEGER" property="checkLogId" />
+    <result column="check_begin_datetime" jdbcType="TIMESTAMP" property="checkBeginDatetime" />
+    <result column="check_end_datetime" jdbcType="TIMESTAMP" property="checkEndDatetime" />
+    <result column="log_state" jdbcType="VARCHAR" property="logState" />
+    <result column="worktime" jdbcType="VARCHAR" property="worktime" />
+    <result column="person_id" jdbcType="INTEGER" property="personId" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="check_class" jdbcType="VARCHAR" property="checkClass" />
+    <result column="check_way" jdbcType="VARCHAR" property="checkWay" />
+  </resultMap>
+  <select id="findByDay" resultMap="BaseResultMap" resultType="com.company.project.model.CheckLog"  >
+    SELECT
+    *
+    FROM
+    `check_log`
+    WHERE
+    TO_DAYS(`check_begin_datetime`) = TO_DAYS(#{date})
+     AND person_id = #{pid} AND group_id = #{gid}
+  </select>
+
+  <select id="findByDayForToday" resultMap="BaseResultMap" resultType="com.company.project.model.CheckLog"  >
+    SELECT
+    *
+    FROM
+    `check_log`
+    WHERE
+    TO_DAYS(`check_begin_datetime`) = TO_DAYS(NOW()) AND person_id = #{pid} AND group_id = #{gid}
+
+  </select>
+</mapper>

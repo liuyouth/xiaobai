@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.TeamPersonRelationMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.TeamPersonRelation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="team_person_relation_id" jdbcType="INTEGER" property="teamPersonRelationId" />
+    <result column="person_id" jdbcType="INTEGER" property="personId" />
+    <result column="team_id" jdbcType="INTEGER" property="teamId" />
+    <result column="the_one_level" jdbcType="VARCHAR" property="theOneLevel" />
+  </resultMap>
+
+
+  <!-- 根据用户id 查询关联信息-->
+  <select id="findByPerson" parameterType="Integer" resultMap="BaseResultMap" resultType="com.company.project.model.TeamPersonRelation">
+  SELECT
+    *
+    FROM
+    team_person_relation
+    WHERE person_id  = #{id}
+  </select>
+
+  <!-- 根据团队id 查询关联信息-->
+  <select id="findByTeam" parameterType="Integer" resultMap="BaseResultMap" resultType="com.company.project.model.TeamPersonRelation">
+    SELECT
+    *
+    FROM
+    team_person_relation
+    WHERE team_id  = #{id}
+  </select>
+</mapper>
