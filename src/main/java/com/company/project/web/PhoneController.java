@@ -5,10 +5,7 @@ import com.company.project.model.Phone;
 import com.company.project.service.PhoneService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,8 +19,24 @@ public class PhoneController {
     @Resource
     private PhoneService phoneService;
 
-    @PostMapping("/add")
-    public Result add(Phone phone) {
+    /**
+     * 前台通过 ajax data：{xxxx}
+     * @param phone
+     * @return
+     */
+    @PostMapping("/addw")
+    public Result addForWeb(Phone phone) {
+        phoneService.save(phone);
+        return ResultGenerator.genSuccessResult();
+    }
+
+    /**
+     * android 通过 @Body
+     * @param phone
+     * @return
+     */
+    @PostMapping("/adda")
+    public Result addForAndroid(@RequestBody Phone phone) {
         phoneService.save(phone);
         return ResultGenerator.genSuccessResult();
     }

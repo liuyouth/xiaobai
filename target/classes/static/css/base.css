@@ -1,0 +1,20 @@
+/**
+  基础样式
+ */
+input{
+    border: 0;
+    /*background-color: rgba(206, 84, 84, 0.44);*/
+    border: 1px solid rgba(205, 68, 68, 0.64);
+    border-radius: 2px;
+    padding: 3px;
+    margin: 3px;
+    outline: none;
+    color: #ff6767;
+    transition: all ease .6s;
+}
+input:focus{
+    color: #fff;
+    background-color: rgba(31, 15, 15, 0.89);
+    border: 1px solid rgba(231, 87, 87, 0.91);
+}
+
