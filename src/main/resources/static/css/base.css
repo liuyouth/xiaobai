@@ -18,3 +18,13 @@ input:focus{
     border: 1px solid rgba(231, 87, 87, 0.91);
 }
 
+form > input{
+    width: 70%;
+    height: 10%;
+}
+
+.form-box{
+    text-align: center;
+}
+
+
