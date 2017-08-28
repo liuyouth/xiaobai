@@ -1,7 +1,21 @@
 $(function () {
    console.log("load JS success")
-
+    $('input').on('focus', function () {
+             var target = this;
+             // 使用定时器是为了让输入框上滑时更加自然
+            setTimeout(function(){
+                target.scrollIntoView(true);
+                target.scrollIntoViewIfNeeded();
+                  },300);
+            });
 });
+function searchEnter(){
+    if (event.keyCode==13) {
+        var type = $("#input").val();
+        console.log(type)
+    };
+
+}
 function postPhone() {
 
     var json = $("#phoneForm").form2json();

@@ -1,24 +1,30 @@
 /**
   基础样式
  */
+*{
+    margin: 0;
+    padding:0;
+}
 input{
     border: 0;
     /*background-color: rgba(206, 84, 84, 0.44);*/
-    border: 1px solid rgba(205, 68, 68, 0.64);
-    border-radius: 2px;
-    padding: 3px;
-    margin: 3px;
+   /* border: 1px solid rgba(205, 68, 68, 0.64);*/
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
     outline: none;
     color: #ff6767;
+    font-size: 18px;
     transition: all ease .6s;
 }
 input:focus{
+    font-size: 40px;
     color: #fff;
     background-color: rgba(31, 15, 15, 0.89);
     border: 1px solid rgba(231, 87, 87, 0.91);
 }
 
-form > input{
+form input{
     width: 70%;
     height: 10%;
 }
@@ -27,4 +33,11 @@ form > input{
     text-align: center;
 }
 
+
+body{
+    /* 使之可以滚动 */
+         overflow-y: scroll;
+          /* 增加该属性，可以增加弹性，是滑动更加顺畅 */
+                    -webkit-overflow-scrolling: touch;
+}
 

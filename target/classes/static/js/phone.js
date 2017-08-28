@@ -8,6 +8,7 @@ $(function () {
                 target.scrollIntoViewIfNeeded();
                   },300);
             });
+    loadList();
 });
 function searchEnter(){
     if (event.keyCode==13) {
@@ -20,6 +21,14 @@ function postPhone() {
 
     var json = $("#phoneForm").form2json();
     $.post("../phone/addw",$("#phoneForm").serialize(),function(result){
+        $("span").html(result);
+    },"application/json","json");
+
+}
+
+function loadList() {
+
+    $.post("../phone/list",function(result){
         $("span").html(result);
     },"application/json","json");
 

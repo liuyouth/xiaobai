@@ -1,0 +1,13 @@
+/**
+  基础样式
+ */
+#input{
+    margin: 0;
+    width: 100%;
+    font-size: 40px;
+    font-size: 40px;
+    color: #fff;
+    background-color: rgba(31, 15, 15, 0.89);
+    border: 1px solid rgba(231, 87, 87, 0.91);
+}
+

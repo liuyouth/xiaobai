@@ -9,6 +9,7 @@
     <meta content="email=no" name="format-detection">
     <title>标题</title>
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/phone.css">
 </head>
 <script src="../js/jQuery.js" ></script>
 <script src="../js/base.js" ></script>
@@ -20,11 +21,15 @@
     <div>
         <form id="phoneForm">
             <div class="form-box"><span>名字</span><input name="phoneName"><br></div>
-
-            <span>颜色</span><input name="phoneColor"><br>
-            <span>容量</span><input name="phoneName"><br>
+            <div class="form-box"><span>颜色</span><input name="phoneColor"><br></div>
+            <div class="form-box"><span>容量</span><input name="phoneName"><br></div>
         </form>
     </div>
+
+</div>
+<div class="form-box" style="    text-align: start;position: fixed;bottom: 1px;">
+    <span style="color: rgba(239, 83, 80, 0.52);font-size: 27px;margin-left: 10px;">名字</span><br>
+    <input id="input" onkeypress="searchEnter()" >
 </div>
 <div id="list">
 

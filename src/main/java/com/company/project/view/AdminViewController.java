@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by MacBook on 2017/8/22.
  */
 @Controller
-@RequestMapping("/v")
-public class ViewController {
+@RequestMapping("/admin")
+public class AdminViewController {
 
     @RequestMapping("/phone")
     public String toPhone(){
 
-        return "phone";
+        return "admin/phone";
     }
 
 
