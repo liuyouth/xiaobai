@@ -19,17 +19,32 @@ function searchEnter(){
 }
 function postPhone() {
 
+    checkForm("#phoneForm");
+
+}
+function checkForm(id){
+    var inputs= $(id).getElementsByTagName("INPUT");
+    for(var   i=0;   i<inputs .length;   i++)   {
+        if(inputs[i].value==""||inputs[i].value==null)   {
+            alert("信息不能为空!");
+            inputs[i].focus();
+            return (false);
+        }
+    }
+
+    phoneForm();
+}
+function phoneForm(){
     var json = $("#phoneForm").form2json();
     $.post("../phone/addw",$("#phoneForm").serialize(),function(result){
-        $("span").html(result);
+        console.log(result);
     },"application/json","json");
-
 }
 
 function loadList() {
 
     $.post("../phone/list",function(result){
-        $("span").html(result);
+        console.log(result);
     },"application/json","json");
 
 }

@@ -1,6 +1,5 @@
 package com.company.project.model;
 
-import java.util.Date;
 import javax.persistence.*;
 
 public class Phone {
@@ -14,14 +13,11 @@ public class Phone {
     @Column(name = "phone_color")
     private String phoneColor;
 
-    @Column(name = "phone_version")
-    private String phoneVersion;
+    @Column(name = "phone_model")
+    private String phoneModel;
 
-    @Column(name = "is_new")
-    private Integer isNew;
-
-    @Column(name = "created_date")
-    private Date createdDate;
+    @Column(name = "phone_size")
+    private Integer phoneSize;
 
     /**
      * @return id
@@ -66,44 +62,30 @@ public class Phone {
     }
 
     /**
-     * @return phone_version
+     * @return phone_model
      */
-    public String getPhoneVersion() {
-        return phoneVersion;
+    public String getPhoneModel() {
+        return phoneModel;
     }
 
     /**
-     * @param phoneVersion
+     * @param phoneModel
      */
-    public void setPhoneVersion(String phoneVersion) {
-        this.phoneVersion = phoneVersion;
+    public void setPhoneModel(String phoneModel) {
+        this.phoneModel = phoneModel;
     }
 
     /**
-     * @return is_new
+     * @return phone_size
      */
-    public Integer getIsNew() {
-        return isNew;
+    public Integer getPhoneSize() {
+        return phoneSize;
     }
 
     /**
-     * @param isNew
+     * @param phoneSize
      */
-    public void setIsNew(Integer isNew) {
-        this.isNew = isNew;
-    }
-
-    /**
-     * @return created_date
-     */
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    /**
-     * @param createdDate
-     */
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setPhoneSize(Integer phoneSize) {
+        this.phoneSize = phoneSize;
     }
 }

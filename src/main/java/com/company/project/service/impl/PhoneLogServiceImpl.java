@@ -1,8 +1,9 @@
 package com.company.project.service.impl;
 
-import com.company.project.dao.PhoneMapper;
+import com.company.project.dao.PhoneLogMapper;
 import com.company.project.model.Phone;
-import com.company.project.service.PhoneService;
+import com.company.project.model.PhoneLog;
+import com.company.project.service.PhoneLogService;
 import com.company.project.core.AbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +16,11 @@ import javax.annotation.Resource;
  */
 @Service
 @Transactional
-public class PhoneServiceImpl extends AbstractService<Phone> implements PhoneService {
+public class PhoneLogServiceImpl extends AbstractService<PhoneLog> implements PhoneLogService {
     @Resource
-    private PhoneMapper phoneMapper;
-
+    private PhoneLogMapper phoneLogMapper;
     @Override
-    public void add(Phone phone) {
-        phoneMapper.add(phone);
+    public void add(PhoneLog phoneLog) {
+        phoneLogMapper.add(phoneLog);
     }
 }

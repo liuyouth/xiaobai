@@ -8,8 +8,14 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="phone_name" jdbcType="VARCHAR" property="phoneName" />
     <result column="phone_color" jdbcType="VARCHAR" property="phoneColor" />
-    <result column="phone_version" jdbcType="VARCHAR" property="phoneVersion" />
-    <result column="is_new" jdbcType="INTEGER" property="isNew" />
-    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="phone_model" jdbcType="VARCHAR" property="phoneModel" />
+    <result column="phone_size" jdbcType="INTEGER" property="phoneSize" />
   </resultMap>
+
+  <insert id="add" keyProperty="id" parameterType="com.company.project.model.Phone" useGeneratedKeys="true">
+    insert into phone (id, phone_name, phone_color,
+    phone_model, phone_size)
+    values (#{id,jdbcType=INTEGER}, #{phoneName,jdbcType=VARCHAR}, #{phoneColor,jdbcType=VARCHAR},
+    #{phoneModel,jdbcType=VARCHAR}, #{phoneSize,jdbcType=INTEGER})
+  </insert>
 </mapper>

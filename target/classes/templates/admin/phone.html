@@ -14,26 +14,35 @@
 <script src="../js/jQuery.js" ></script>
 <script src="../js/base.js" ></script>
 <script src="../js/index.js" ></script>
+<script src="../js/phone.js" ></script>
 <body>
-这里开始内容
-<div>
-<button onclick="postPhone()">提交</button>
-    <div>
-        <form id="phoneForm">
-            <div class="form-box"><span>名字</span><input name="phoneName"><br></div>
-            <div class="form-box"><span>颜色</span><input name="phoneColor"><br></div>
-            <div class="form-box"><span>容量</span><input name="phoneName"><br></div>
-        </form>
-    </div>
+<div >
+    <div class="left" style="width: 60%">
+        <div style="padding: 5px;background: #eaeaea" onclick="loadList()"><button>刷新</button></div>
+        <div id="list">
 
+        </div>
+    </div>
+    <div class="left"  style="width: 40%">
+        <button class="post" onclick="postPhone()">添加型号</button>
+        <div>
+            <form id="phoneForm">
+                <div class="form-box"><span>名字</span><input name="phoneName"><br></div>
+                <div class="form-box"><span>颜色</span><input name="phoneColor"><br></div>
+                <div class="form-box"><span>容量</span><input name="phoneSize"><br></div>
+                <div class="form-box"><span>型号</span><input name="phoneModel"><br></div>
+            </form>
+        </div>
+
+    </div>
+    <div class="clear"></div>
 </div>
+
 <div class="form-box" style="    text-align: start;position: fixed;bottom: 1px;">
     <span style="color: rgba(239, 83, 80, 0.52);font-size: 27px;margin-left: 10px;">名字</span><br>
     <input id="input" onkeypress="searchEnter()" >
 </div>
-<div id="list">
 
-</div>
 </body>
 
 </html>

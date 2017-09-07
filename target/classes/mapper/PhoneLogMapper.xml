@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PhoneLogMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.PhoneLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="in_price" jdbcType="DOUBLE" property="inPrice" />
+    <result column="is_Intact" jdbcType="BIT" property="isIntact" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="phone_id" jdbcType="INTEGER" property="phoneId" />
+  </resultMap>
+  <resultMap id="ResultMap" type="com.company.project.model.PhoneLog" extends="BaseResultMap">
+    <association javaType="com.company.project.model.Phone" property="phone">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="phone_name" jdbcType="VARCHAR" property="phoneName" />
+      <result column="phone_color" jdbcType="VARCHAR" property="phoneColor" />
+      <result column="phone_model" jdbcType="VARCHAR" property="phoneModel" />
+      <result column="phone_size" jdbcType="INTEGER" property="phoneSize" />
+    </association>
+  </resultMap>
+
+
+  <insert id="add" keyProperty="id" parameterType="com.company.project.model.PhoneLog" useGeneratedKeys="true">
+    insert into phone_log (id, price, create_time,
+      in_price, is_Intact, version,
+      phone_id)
+    values (#{id,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{createTime,jdbcType=VARCHAR},
+      #{inPrice,jdbcType=DOUBLE}, #{isIntact,jdbcType=BIT}, #{version,jdbcType=INTEGER},
+      #{phone.id,jdbcType=INTEGER})
+  </insert>
+
+</mapper>
