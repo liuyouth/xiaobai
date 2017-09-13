@@ -24,6 +24,25 @@ public class PhoneLog {
     @Column(name = "phone_id")
     private Integer phoneId;
 
+    @Transient
+    private Phone phone;
+
+    public Boolean getIntact() {
+        return isIntact;
+    }
+
+    public void setIntact(Boolean intact) {
+        isIntact = intact;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
     /**
      * @return id
      */

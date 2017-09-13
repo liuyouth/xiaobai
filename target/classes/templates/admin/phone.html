@@ -17,9 +17,13 @@
 <script src="../js/phone.js" ></script>
 <body>
 <div >
-    <div class="left" style="width: 60%">
+    <div class="left" style="width: 60%;height: 500px">
         <div style="padding: 5px;background: #eaeaea" onclick="loadList()"><button>刷新</button></div>
-        <div id="list">
+        <div class="left" style="width: 49%" id="list">
+
+        </div>
+        <div class="left" style="width: 2%;height:100%;background: #ff6767"> </div>
+        <div class="left" style="width: 49%" id="logList">
 
         </div>
     </div>
@@ -31,6 +35,17 @@
                 <div class="form-box"><span>颜色</span><input name="phoneColor"><br></div>
                 <div class="form-box"><span>容量</span><input name="phoneSize"><br></div>
                 <div class="form-box"><span>型号</span><input name="phoneModel"><br></div>
+            </form>
+        </div>
+        <button class="post" onclick="postPhoneLog()">添加报价</button>
+        <div>
+            <form id="phoneLogForm">
+                <div class="form-box"><span>机型</span><span id="phoneId"></span><input  style="display:none;" name="phoneId"><br></div>
+                <div class="form-box"><span>进价</span><input name="inPrice"><br></div>
+                <div class="form-box"><span>出价</span><input name="price"><br></div>
+                <div class="form-box"><span>版本</span><input name="version"><br></div>
+                <div class="form-box"><span>原封</span><input name="isIntact"><br></div>
+
             </form>
         </div>
 

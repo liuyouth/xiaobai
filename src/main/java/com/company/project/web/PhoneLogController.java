@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
+
+import static com.company.project.utils.DateUtils.getDate;
 
 /**
 * Created by CodeGenerator on 2017/09/06.
@@ -51,6 +54,8 @@ public class PhoneLogController {
     }
     @PostMapping("/addw")
     public Result addw(PhoneLog phoneLog) {
+        System.out.println(phoneLog.getPhone().getId());
+        phoneLog.setCreateTime(getDate());
         phoneLogService.add(phoneLog);
         return ResultGenerator.genSuccessResult(phoneLog);
     }
