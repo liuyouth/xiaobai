@@ -14,3 +14,11 @@
 .left{
     float: left;
 }
+.item{
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+.item span{
+    text-align: center;
+    width:20%;
+}
