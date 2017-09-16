@@ -30,7 +30,7 @@
       phone_id)
     values (#{id,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{createTime,jdbcType=VARCHAR},
       #{inPrice,jdbcType=DOUBLE}, #{isIntact,jdbcType=BIT}, #{version,jdbcType=INTEGER},
-      #{phone.id,jdbcType=INTEGER})
+      #{phoneId,jdbcType=INTEGER})
   </insert>
 
 </mapper>

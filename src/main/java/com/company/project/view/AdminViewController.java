@@ -15,6 +15,11 @@ public class AdminViewController {
 
         return "admin/phone";
     }
+    @RequestMapping("/index")
+    public String toIndex(){
+
+        return "admin/index";
+    }
 
 
 }

@@ -54,7 +54,7 @@ public class PhoneLogController {
     }
     @PostMapping("/addw")
     public Result addw(PhoneLog phoneLog) {
-        System.out.println(phoneLog.getPhone().getId());
+        System.out.println(phoneLog.getPhoneId());
         phoneLog.setCreateTime(getDate());
         phoneLogService.add(phoneLog);
         return ResultGenerator.genSuccessResult(phoneLog);
