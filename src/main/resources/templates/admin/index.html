@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../css/layui.css">
 </head>
 <body>
-<div class="layui-layout layui-layout-admin">
+<div class="layui-layout layui-layout-admin ">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo" style="color: #ff6767;">小白 - 杂货铺后台</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -27,8 +27,8 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
+                    <img src="https://liuyouth.github.io/img/root_icon.png" class="layui-nav-img">
+                    小白
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
@@ -39,29 +39,21 @@
         </ul>
     </div>
 
-    <div class="layui-side layui-bg-black">
+    <div class="layui-side ">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
+                    <a class="" href="javascript:;">phone</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="javascript:;">index</a></dd>
+                        <dd><a href="javascript:;">配件</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
+                    <a href="javascript:;">收藏站点</a>
                 </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
+                <li class="layui-nav-item"><a href="">友联</a></li>
             </ul>
         </div>
     </div>
@@ -69,13 +61,21 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div class="layui-container">
-            常规布局（以中型屏幕桌面为例）：
+
             <div class="layui-row">
-                <div class="layui-col-md9">
-                    你的内容 9/12
+                <div class="layui-col-md12">
+                  型号列表
                 </div>
-                <div class="layui-col-md3">
-                    你的内容 3/12
+                <div class="layui-col-md12">
+                    <div class="demoTable">
+                        搜索ID：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>
+
+                    <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
                 </div>
             </div>
 
@@ -102,15 +102,64 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+        © iolll.com - 底部固定区域
     </div>
 </div>
+<script src="../js/jQuery.js" ></script>
+<script src="../js/base.js" ></script>
+<script src="../js/index.js" ></script>
+<script src="../js/phone.js" ></script>
 <script src="../js/layui.all.js"></script>
+
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
 
+    });
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,url: '/phone/tablelist'
+            ,cols: [[
+                {checkbox: true, fixed: true}
+                ,{field:'id', title: 'ID', width:80, sort: true, fixed: true}
+                ,{field:'phoneColor', title: '颜色', width:80}
+                ,{field:'phoneName', title: '型号', width:80, sort: true}
+                ,{field:'phoneSize', title: '内存', width:80}
+//                ,{field:'sign', title: '签名', width:177}
+//                ,{field:'experience', title: '积分', sort: true, width:80}
+//                ,{field:'score', title: '评分', sort: true, width:80}
+//                ,{field:'classify', title: '职业', width:80}
+//                ,{field:'wealth', title: '财富', sort: true, width:135}
+            ]]
+            ,id: 'testReload'
+            ,page: true
+            ,height: 315
+        });
+
+        var $ = layui.$, active = {
+            reload: function(){
+                var demoReload = $('#demoReload');
+
+                table.reload('testReload', {
+                    where: {
+                        key: {
+                            phoneSize: demoReload.val(),
+                            phoneName:"iphone6"
+                        }
+                    }
+                });
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
     });
 </script>
 </body>
