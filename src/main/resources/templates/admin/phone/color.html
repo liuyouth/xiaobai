@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
-    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../../../css/layui.css">
 </head>
 <body>
 <div class="layui-layout layui-layout-admin ">
@@ -48,7 +48,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">index</a></dd>
                         <dd><a href="javascript:;">model</a></dd>
-                        <dd><a href="phone/color.html">color</a></dd>
+                        <dd class="layui-this"><a href="javascript:;">color</a></dd>
                         <dd><a href="javascript:;">配件</a></dd>
                     </dl>
                 </li>
@@ -63,57 +63,57 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div class="layui-container">
+            <button class="layui-btn" onclick="showAddView()">添加</button>
+
+
+
+
 
             <div class="layui-row">
                 <div class="layui-col-md12">
                   型号列表
                 </div>
                 <div class="layui-col-md12">
-                    <div class="demoTable">
-                        搜索ID：
-                        <div class="layui-inline">
-                            <input class="layui-input" name="id" id="demoReload" autocomplete="off">
-                        </div>
-                        <button class="layui-btn" data-type="reload">搜索</button>
-                    </div>
 
                     <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
                 </div>
             </div>
 
-            移动设备、平板、桌面端的不同表现：
-            <div class="layui-row">
-                <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-                    移动：6/12 | 平板：6/12 | 桌面：4/12
-                </div>
-                <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-                    移动：6/12 | 平板：6/12 | 桌面：4/12
-                </div>
-                <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-                    移动：4/12 | 平板：12/12 | 桌面：4/12
-                </div>
-                <div class="layui-col-xs4 layui-col-sm7 layui-col-md8">
-                    移动：4/12 | 平板：7/12 | 桌面：8/12
-                </div>
-                <div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
-                    移动：4/12 | 平板：5/12 | 桌面：4/12
+        </div>
+
+        <form id="add" class="layui-form" > <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">输入框</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input">
                 </div>
             </div>
-        </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+            <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+        </form>
     </div>
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © iolll.com - 底部固定区域
+        © iolll.com - 小白的杂货铺
     </div>
 </div>
-<script src="../js/jQuery.js" ></script>
-<script src="../js/base.js" ></script>
-<script src="../js/index.js" ></script>
-<script src="../js/phone.js" ></script>
-<script src="../js/layui.all.js"></script>
+<script src="../../../js/jQuery.js" ></script>
+<script src="../../../js/base.js" ></script>
+<script src="../../../js/index.js" ></script>
+<script src="../../../js/phone.js" ></script>
+<script src="../../../js/layui.all.js"></script>
 
 <script>
+    $(function () {
+       $("#add").hide();
+    });
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
@@ -125,13 +125,12 @@
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            ,url: '/phone/tablelist'
+            ,method:"post"
+            ,url: '/phone/color/list'
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id', title: 'ID', width:80, sort: true, fixed: true}
-                ,{field:'phoneColor', title: '颜色', width:80}
-                ,{field:'phoneName', title: '型号', width:80, sort: true}
-                ,{field:'phoneSize', title: '内存', width:80}
+                ,{field:'name', title: '颜色', width:120}
 //                ,{field:'sign', title: '签名', width:177}
 //                ,{field:'experience', title: '积分', sort: true, width:80}
 //                ,{field:'score', title: '评分', sort: true, width:80}
@@ -140,27 +139,60 @@
             ]]
             ,id: 'testReload'
             ,page: true
-            ,height: 315
+
         });
 
-        var $ = layui.$, active = {
-            reload: function(){
-                var demoReload = $('#demoReload');
 
-                table.reload('testReload', {
-                    where: {
-                        key: {
-                            phoneSize: demoReload.val(),
-                            phoneName:"iphone6"
-                        }
-                    }
-                });
+
+
+    });
+    function showAddView(){
+        $("#add").show();
+        var that = this;
+        //多窗口模式，层叠置顶
+        layer.open({
+            type: 1 //此处以iframe举例
+            ,title: '手机型号颜色添加'
+            ,area: ['500px', '360px']
+            ,shade: 0
+            //,maxmin: true
+//            ,offset: [ //为了演示，随机坐标
+//                Math.random()*($(window).height()-300)
+//                ,Math.random()*($(window).width()-390)
+//            ]
+            ,content: $("#add")
+            //,btn: ['继续弹出'] //只是为了演示
+            ,yes: function(){
+                $(that).click();
+
             }
-        };
+            ,btn2: function(){
+                layer.closeAll();
+            }
 
-        $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
+            ,zIndex: layer.zIndex //重点1
+            ,success: function(layero){
+                layer.setTop(layero); //重点2
+            },end:function(){
+                $("#add").hide();
+            }
+        });
+    };
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //各种基于事件的操作，下面会有进一步介绍
+        form.on('submit(*)', function(data){
+//            console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+//            console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+//            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            $.post("../../../phone/color/addw",data.field,function(result){
+                layer.closeAll();
+                layer.msg(result.message);
+                console.log(result.message);
+                table.reload();
+            },"application/json","json");
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
         });
     });
 </script>

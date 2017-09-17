@@ -20,11 +20,11 @@ public class ViewController {
         return "phone";
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public ModelAndView welcome(@PathVariable("name") String name) {
-
+    @RequestMapping(value = "/{n}/{nn}/{nnn}", method = RequestMethod.GET)
+    public ModelAndView welcome(@PathVariable("n") String n,@PathVariable("nn") String nn,@PathVariable("nnn") String nnn) {
+        System.out.println(" 跳转至  "+n+"/"+nn+"/"+nnn);
         ModelAndView model = new ModelAndView();
-        model.setViewName(name);
+        model.setViewName(n+"/"+nn+"/"+nnn);
        // model.addObject("name", name);
 
         return model;
