@@ -9,7 +9,7 @@ public class TableResult {
     private int code;
     private String message;
     private Object data;
-    private int count;
+    private long count;
 
     public TableResult setCode(ResultCode resultCode) {
         this.code = resultCode.code;
@@ -43,11 +43,11 @@ public class TableResult {
         return this;
     }
 
-    public int getCount() {
+    public long getCount() {
         return count;
     }
 
-    public TableResult setCount(int count) {
+    public TableResult setCount(long count) {
         this.count = count;
         return this;
     }

@@ -83,7 +83,7 @@
 
         <form id="add" class="layui-form" > <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
             <div class="layui-form-item">
-                <label class="layui-form-label">输入框</label>
+                <label class="layui-form-label">颜色名称</label>
                 <div class="layui-input-block">
                     <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input">
                 </div>
@@ -91,7 +91,8 @@
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+                    <button type="button" class="layui-btn" lay-submit lay-filter="*" onclick="post()">立即提交</button>
+                    <button type="button" class="layui-btn" lay-submit lay-filter="*" onclick="post1()">立即提交</button>
                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </div>
@@ -107,10 +108,10 @@
 <script src="../../../js/jQuery.js" ></script>
 <script src="../../../js/base.js" ></script>
 <script src="../../../js/index.js" ></script>
-<script src="../../../js/phone.js" ></script>
 <script src="../../../js/layui.all.js"></script>
 
 <script>
+    var table
     $(function () {
        $("#add").hide();
     });
@@ -120,31 +121,8 @@
 
     });
     layui.use('table', function(){
-        var table = layui.table;
-
-        //方法级渲染
-        table.render({
-            elem: '#LAY_table_user'
-            ,method:"post"
-            ,url: '/phone/color/list'
-            ,cols: [[
-                {checkbox: true, fixed: true}
-                ,{field:'id', title: 'ID', width:80, sort: true, fixed: true}
-                ,{field:'name', title: '颜色', width:120}
-//                ,{field:'sign', title: '签名', width:177}
-//                ,{field:'experience', title: '积分', sort: true, width:80}
-//                ,{field:'score', title: '评分', sort: true, width:80}
-//                ,{field:'classify', title: '职业', width:80}
-//                ,{field:'wealth', title: '财富', sort: true, width:135}
-            ]]
-            ,id: 'testReload'
-            ,page: true
-
-        });
-
-
-
-
+        table = layui.table;
+        loadTable();
     });
     function showAddView(){
         $("#add").show();
@@ -178,23 +156,55 @@
             }
         });
     };
-    layui.use('form', function(){
-        var form = layui.form;
+    function loadTable(){
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,method:"post"
+            ,url: '/phone/color/list'
+            ,cols: [[
 
-        //各种基于事件的操作，下面会有进一步介绍
-        form.on('submit(*)', function(data){
-//            console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-//            console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
-//            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
-            $.post("../../../phone/color/addw",data.field,function(result){
-                layer.closeAll();
-                layer.msg(result.message);
-                console.log(result.message);
-                table.reload();
-            },"application/json","json");
-            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                {edit:'text',checkbox: true, fixed: true}
+                ,{field:'id', title: 'ID', width:80, sort: true, fixed: true}
+                ,{field:'name', title: '颜色', width:120}
+//                ,{field:'sign', title: '签名', width:177}
+//                ,{field:'experience', title: '积分', sort: true, width:80}
+//                ,{field:'score', title: '评分', sort: true, width:80}
+//                ,{field:'classify', title: '职业', width:80}
+//                ,{field:'wealth', title: '财富', sort: true, width:135}
+            ]]
+            ,id: 'testReload'
+            ,page: true
+            ,limit: 15
+
         });
-    });
+
+    }
+    function post(){
+        $.post("../../../phone/color/addw",$("#add").serialize(),function(result){
+            layer.closeAll();
+            layer.msg(result.message);
+            console.log(result.message);
+            loadTable();
+        },"json");
+    }
+    function post1() {
+        $.ajax({
+            url: "../../../phone/color/addw",
+            type: 'POST',
+            data:$("#add").serialize(),
+            dataType: 'json',
+            async: true,//同步
+            timeout: 5000,
+            error: function(data){
+                alert(data);
+            },
+            success: function(data){
+                console.log(data)
+            }
+        });
+
+    }
 </script>
 </body>
 </html>

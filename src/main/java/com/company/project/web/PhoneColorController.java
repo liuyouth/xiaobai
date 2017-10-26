@@ -4,6 +4,7 @@ import com.company.project.core.ResultGenerator;
 import com.company.project.core.TableResult;
 import com.company.project.model.PhoneColor;
 import com.company.project.service.PhoneColorService;
+import com.github.pagehelper.ISelect;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +16,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2017/09/17.
-*/
+ * Created by CodeGenerator on 2017/09/17.
+ */
 @RestController
 @RequestMapping("/phone/color")
 public class PhoneColorController {
@@ -48,10 +49,13 @@ public class PhoneColorController {
     }
 
     @PostMapping("/list")
-    public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
-        PageHelper.startPage(page, size);
+    public TableResult list(@RequestParam(defaultValue = "0") Integer page
+            , @RequestParam(defaultValue = "0") Integer limit) {
+        PageHelper.startPage(page, limit,true);
         List<PhoneColor> list = phoneColorService.findAll();
+        PageInfo<PhoneColor> pageInfo = new PageInfo<PhoneColor>(list);
+        long total = pageInfo.getTotal(); //获取总记录数
         //PageInfo pageInfo = new PageInfo(list);
-        return new TableResult().setCode(0).setCount(list.size()).setData(list);
+        return new TableResult().setCode(0).setCount(total).setData(list);
     }
 }

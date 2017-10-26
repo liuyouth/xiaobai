@@ -21,5 +21,11 @@ public class AdminViewController {
         return "admin/index";
     }
 
+    @RequestMapping("/table")
+    public String totable(){
+
+        return "admin/table_data_tables";
+    }
+
 
 }

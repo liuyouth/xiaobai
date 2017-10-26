@@ -4,7 +4,7 @@ import com.company.project.core.Service;
 
 
 /**
- * Created by CodeGenerator on 2017/09/17.
+ * Created by CodeGenerator on 2017/09/23.
  */
 public interface PhoneOfferService extends Service<PhoneOffer> {
 

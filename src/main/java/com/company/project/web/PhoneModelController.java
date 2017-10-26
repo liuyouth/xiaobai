@@ -1,6 +1,8 @@
 package com.company.project.web;
 import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
+import com.company.project.core.TableResult;
+import com.company.project.model.PhoneColor;
 import com.company.project.model.PhoneModel;
 import com.company.project.service.PhoneModelService;
 import com.github.pagehelper.PageHelper;
@@ -14,7 +16,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2017/09/17.
+* Created by CodeGenerator on 2017/09/23.
 */
 @RestController
 @RequestMapping("/phone/model")
@@ -46,11 +48,15 @@ public class PhoneModelController {
         return ResultGenerator.genSuccessResult(phoneModel);
     }
 
+
     @PostMapping("/list")
-    public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
-        PageHelper.startPage(page, size);
+    public TableResult list(@RequestParam(defaultValue = "0") Integer page
+            , @RequestParam(defaultValue = "0") Integer limit) {
+        PageHelper.startPage(page, limit,true);
         List<PhoneModel> list = phoneModelService.findAll();
-        PageInfo pageInfo = new PageInfo(list);
-        return ResultGenerator.genSuccessResult(pageInfo);
+        PageInfo<PhoneModel> pageInfo = new PageInfo<PhoneModel>(list);
+        long total = pageInfo.getTotal(); //获取总记录数
+        //PageInfo pageInfo = new PageInfo(list);
+        return new TableResult().setCode(0).setCount(total).setData(list);
     }
 }
