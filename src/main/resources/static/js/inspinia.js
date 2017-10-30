@@ -18,27 +18,43 @@ $(document).ready(function () {
     // MetisMenu
     $('#side-menu').metisMenu();
 
+
+    /*
+     * author:liubo
+     * day:2017-10-30
+     * 添加data-id 绑定控制 兼容之前代码
+     */
     // Collapse ibox function
     $('.collapse-link').on('click', function () {
         var id = $(this).attr("data-id");
-
-       if (id == null){
         var ibox = $(this).closest('div.ibox');
         var button = $(this).find('i');
-        var content = ibox.children('.ibox-content');
-        content.slideToggle(200);
-        button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-        ibox.toggleClass('').toggleClass('border-bottom');
-        setTimeout(function () {
-            ibox.resize();
-            ibox.find('[id^=map-]').resize();
-        }, 50);
-       }else{
-           console.log(id);
-       }
+        if (id == null) {
+
+            var content = ibox.children('.ibox-content');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        } else {
+            var addIbox = $(ibox).find('div.ibox[data-id="'+id+'"]');
+            var content = addIbox.children('.ibox-content');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            addIbox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                addIbox.resize();
+                addIbox.find('[id^=map-]').resize();
+            }, 50);
+        }
     });
 
-    // Close ibox function
+    // Close ib
+    //
+    // ox function
     $('.close-link').on('click', function () {
         var content = $(this).closest('div.ibox');
         content.remove();
