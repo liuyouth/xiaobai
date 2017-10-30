@@ -27,5 +27,11 @@ public class AdminViewController {
         return "admin/table_data_tables";
     }
 
+    @RequestMapping("/phones")
+    public String totables(){
+
+        return "admin/phones";
+    }
+
 
 }

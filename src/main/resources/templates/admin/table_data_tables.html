@@ -281,13 +281,13 @@
                         <li>
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a7.jpg">
+                                    <img alt="image" class="img-circle" src="../img/a7.jpg">
                                 </a>
                                 <div class="media-body">
                                     <small class="pull-right">46h ago</small>
                                     <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
                                     <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                                </div>
+                                </div>a7
                             </div>
                         </li>
                         <li class="divider"></li>
@@ -889,23 +889,33 @@
 
     <!-- Page-Level Scripts -->
     <script>
+        var table
         $(document).ready(function(){
             console.log("sss");
-            $('.dataTables-example').DataTable({
-                method:"post",
-                ajax: '/phone/color/list',
+             table =  $('.dataTables-example').DataTable({
+                select:true,
+                ajax: {"url":'/phone/color/list',
+                    "type": "POST"
+                },
                 columns:[
                     {
-                        checkbox: true
-                    }, {
-                        field: 'Id',
-                        title: 'id'
+                        title:"序号",
+                        data: 'id'
                     }
                     , {
-                        field: 'Name',
-                        title: 'name'
+                        title:"名字",
+                        data: 'name'
+                    },{
+                        title:"操作",
+                        targets: -1,
+                        data: id,
+                        defaultContent: "<button onclick='cell(this)'>Click!</button>"
                     }
-            ],
+
+
+
+                ],
+
                 pageLength: 25,
                 responsive: true,
                 dom: '<"html5buttons"B>lTfgitp',
@@ -930,6 +940,15 @@
             });
 
         });
+
+
+        function cell(btn) {
+            var data = table.row( $(btn).parents('tr') ).data();
+            console.log(data);
+            $('.dataTables-example tbody td').each(function(){
+                $(this).replaceWith('<td><input value="'+$(this).html()+'"></td>');
+            })
+        }
 
     </script>
 

@@ -1,14 +1,13 @@
 package com.company.project.web;
 import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
+import com.company.project.core.TableResult;
 import com.company.project.model.Parameter;
+import com.company.project.model.PhoneColor;
 import com.company.project.service.ParameterService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -46,11 +45,12 @@ public class ParameterController {
         return ResultGenerator.genSuccessResult(parameter);
     }
 
-    @PostMapping("/list")
-    public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
-        PageHelper.startPage(page, size);
+    @GetMapping("/list")
+    public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
+        PageHelper.startPage(page, limit,true);
         List<Parameter> list = parameterService.findAll();
-        PageInfo pageInfo = new PageInfo(list);
-        return ResultGenerator.genSuccessResult(pageInfo);
+        PageInfo<Parameter> pageInfo = new PageInfo<Parameter>(list);
+        long total = pageInfo.getTotal(); //获取总记录数
+        return new TableResult().setCode(0).setCount(total).setData(list);
     }
 }
