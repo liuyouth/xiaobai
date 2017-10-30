@@ -20,6 +20,9 @@ $(document).ready(function () {
 
     // Collapse ibox function
     $('.collapse-link').on('click', function () {
+        var id = $(this).attr("data-id");
+
+       if (id == null){
         var ibox = $(this).closest('div.ibox');
         var button = $(this).find('i');
         var content = ibox.children('.ibox-content');
@@ -30,6 +33,9 @@ $(document).ready(function () {
             ibox.resize();
             ibox.find('[id^=map-]').resize();
         }, 50);
+       }else{
+           console.log(id);
+       }
     });
 
     // Close ibox function
