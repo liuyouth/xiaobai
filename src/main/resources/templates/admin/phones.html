@@ -449,7 +449,7 @@
                             <div class="ibox float-e-margins " data-id="addConfigView">
                                 <div class="ibox-content" style="display: none;">
                                     <form id="configForm" class="form-horizontal">
-                                        <p> { 新添加需要修改数据库以及POJO类 }</p>
+                                        <p> // 选择参数类型填写对应的参数值 </p>
 
                                         <div class="row">
                                             <div class="col-lg-3">
@@ -514,7 +514,7 @@
                             <div class="ibox float-e-margins " data-id="addview">
                                 <div class="ibox-content" style="display: none;">
                                     <form id="parameterForm" class="form-horizontal">
-                                        <p> { 新添加需要修改数据库以及POJO类 }</p>
+                                        <p> // 新添加需要修改数据库以及POJO类 </p>
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="name" placeholder="参数名称">
                                             <span class="input-group-btn">
@@ -580,7 +580,7 @@
                     defaultContent: "无"
                 }
                 , {
-                    data: 'parameter.name',
+                    data: 'parameter',
                     title: "参数类别"
                 }, {
                     data: 'name',
@@ -624,8 +624,10 @@
             responsive: true,
             "fnDrawCallback": function (obj) {
                 parameters = [];
-                for (var i = 0; i < obj.aoData.length; i++) {
-                    parameters.push(obj.aoData[i]._aData);
+                if (obj!=null){
+                    for (var i = 0; i < obj.aoData.length; i++) {
+                        parameters.push(obj.aoData[i]._aData);
+                    }
                 }
 
             }
@@ -679,7 +681,7 @@
                 return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
                     return '<strong>' + match + '</strong>'
                 })
-            }, items: all,
+            }, items: "all",
         });
     });
     $('#addParameter').on('click', function () {
@@ -691,6 +693,17 @@
             success: function (data) {
                 console.log(data.message)
 //                    parameter.refresh();
+
+            }
+        });
+    });
+    $('#addConfig').on('click', function () {
+        $.ajax({
+            type: "post",
+            url: "/config/add",
+            data: $('#configForm').serialize(),
+            success: function (data) {
+                console.log(data.message);
 
             }
         });
