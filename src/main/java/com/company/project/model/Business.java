@@ -4,42 +4,46 @@ import javax.persistence.*;
 
 public class Business {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "business_id")
+    private Integer businessId;
 
-    private String name;
+    @Column(name = "business_name")
+    private String businessName;
 
     private String phone;
 
+    /**
+     * ä»£å‘
+     */
     @Column(name = "on_behalf")
     private Boolean onBehalf;
 
     /**
-     * @return id
+     * @return business_id
      */
-    public Integer getId() {
-        return id;
+    public Integer getBusinessId() {
+        return businessId;
     }
 
     /**
-     * @param id
+     * @param businessId
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBusinessId(Integer businessId) {
+        this.businessId = businessId;
     }
 
     /**
-     * @return name
+     * @return business_name
      */
-    public String getName() {
-        return name;
+    public String getBusinessName() {
+        return businessName;
     }
 
     /**
-     * @param name
+     * @param businessName
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
     }
 
     /**
@@ -57,14 +61,18 @@ public class Business {
     }
 
     /**
-     * @return on_behalf
+     * 获取ä»£å‘
+     *
+     * @return on_behalf - ä»£å‘
      */
     public Boolean getOnBehalf() {
         return onBehalf;
     }
 
     /**
-     * @param onBehalf
+     * 设置ä»£å‘
+     *
+     * @param onBehalf ä»£å‘
      */
     public void setOnBehalf(Boolean onBehalf) {
         this.onBehalf = onBehalf;

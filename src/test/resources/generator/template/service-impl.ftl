@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
+import java.util.List;
 
 /**
  * Created by ${author} on ${date}.
@@ -19,4 +19,8 @@ public class ${modelNameUpperCamel}ServiceImpl extends AbstractService<${modelNa
     @Resource
     private ${modelNameUpperCamel}Mapper ${modelNameLowerCamel}Mapper;
 
+    @Override
+    public List<${modelNameUpperCamel}> findAllRely(){
+        return ${modelNameLowerCamel}Mapper.findAllRely();
+    }
 }

@@ -448,8 +448,143 @@
 
                             <div class="ibox float-e-margins " data-id="addConfigView">
                                 <div class="ibox-content" style="display: none;">
+                                    <form id="modelForm" class="form-horizontal">
+                                        <p> // 选择参数类型填写对应的参数值 </p>
+
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+
+                                                    <input name="parameter" id="colorAutoHide" type="hidden">
+                                                    <input type="text" id="colorAuto" placeholder="颜色...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                    <input name="parameter" id="networkAutoHide" type="hidden">
+                                                    <input type="text" id="networkAuto" placeholder="支持网络...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <div class="input-group">
+
+                                                    <input type="text" class="form-control" name="name"
+                                                           placeholder="参数名称">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" id="addModel"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-model">
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>供货商</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="collapse-link " data-id="addConfigView">
+                                    <i class="fa fa-chevron-down">添加</i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="ibox float-e-margins " data-id="addConfigView">
+                                <div class="ibox-content" style="display: none;">
+                                    <form id="businessForm" class="form-horizontal">
+                                        <p> // 选择参数类型填写对应的参数值 </p>
+
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+
+                                                    <input type="text"  placeholder="姓名"
+                                                           name="name" class="form-control"/>
+                                                    <input type="text"  placeholder="手机号"
+                                                           name="phone" class=" form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" id="addbusiness"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-business">
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>配置</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="collapse-link " data-id="addConfigView">
+                                    <i class="fa fa-chevron-down">添加</i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="ibox float-e-margins " data-id="addConfigView">
+                                <div class="ibox-content" style="display: none;">
                                     <form id="configForm" class="form-horizontal">
-                                        <p> { 新添加需要修改数据库以及POJO类 }</p>
+                                        <p> // 选择参数类型填写对应的参数值 </p>
 
                                         <div class="row">
                                             <div class="col-lg-3">
@@ -511,10 +646,10 @@
                         </div>
                         <div class="ibox-content">
 
-                            <div class="ibox float-e-margins " data-id="addview">
+                            <div class="ibox float-e-margins " style=" margin-bottom: 5px;" data-id="addview">
                                 <div class="ibox-content" style="display: none;">
                                     <form id="parameterForm" class="form-horizontal">
-                                        <p> { 新添加需要修改数据库以及POJO类 }</p>
+                                        <p> // 新添加需要修改数据库以及POJO类 </p>
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="name" placeholder="参数名称">
                                             <span class="input-group-btn">
@@ -565,9 +700,65 @@
 <!-- Page-Level Scripts -->
 <script>
     var parameter;
-    var parameters;
     var config;
+    var business;
+    var model;
     $(document).ready(function () {
+        model = $('.dataTables-model').DataTable({
+            select: true,
+            ajax: {
+                "url": '/model/list'
+            },
+            columns: [
+                {
+                    data: 'id',
+                    "title": "序号",
+                    defaultContent: "无"
+                    ,width:"50px"
+                }, {
+                    data: 'model',
+                    title: "型号"
+                }, {
+                    data: 'color',
+                    title: "颜色",
+                },
+
+
+            ],
+            pageLength: 25,
+            responsive: true,
+        });
+        business = $('.dataTables-business').DataTable({
+            select: true,
+            ajax: {
+                "url": '/business/list'
+            },
+            columns: [
+                {
+                    data: 'id',
+                    "title": "序号",
+                    defaultContent: "无"
+                    ,width:"50px"
+                }
+                , {
+                    data: 'businessName',
+                    title: "名字",
+                }, {
+                    data: 'phone',
+                    title: "手机号"
+                },{
+                    data:"onBehalf",
+                    title:"是否支持代发",
+                    "":function (data) {
+                        return (data==0) ? "不支持":"支持"
+                    }
+                }
+
+
+            ],
+            pageLength: 25,
+            responsive: true,
+        });
         config = $('.dataTables-config').DataTable({
             select: true,
             ajax: {
@@ -578,10 +769,11 @@
                     data: 'id',
                     "title": "序号",
                     defaultContent: "无"
+                    ,width:"50px"
                 }
                 , {
-                    data: 'parameter.name',
-                    title: "参数类别"
+                    data: 'parameter.parameterName',
+                    title: "参数类别",
                 }, {
                     data: 'name',
                     title: "名字"
@@ -600,36 +792,40 @@
             },
             columns: [
                 {
-                    data: 'id',
+                    data: 'parameterId',
                     "title": "序号",
-                    defaultContent: "无"
+                    defaultContent: "无",
+                    width:"50px"
                 }
                 , {
-                    data: 'name',
+                    data: 'parameterName',
                     title: "名字",
                     defaultContent: '<input name="name" placeholder="填写名字">'
-                }, {
-                    targets: -1,
-                    data: "id",
-                    titile: "操作",
-                    "": function (data, type, full) {
-                        return data;
-                    },
-                    defaultContent: "<button onclick='cellParameter(this)'>添加!</button>"
                 }
 
-
+//                , {
+//                    targets: -1,
+//                    data: "id",
+//                    titile: "操作",
+//                    "": function (data, type, full) {
+//                        return data;
+//                    },
+//                    defaultContent: "<button onclick='cellParameter(this)'>添加!</button>"
+//                }
             ],
             pageLength: 25,
             responsive: true,
             "fnDrawCallback": function (obj) {
-                parameters = [];
-                for (var i = 0; i < obj.aoData.length; i++) {
-                    parameters.push(obj.aoData[i]._aData);
-                }
+//                parameters = [];
+//                if (obj!=null){
+//                    for (var i = 0; i < obj.aoData.length; i++) {
+//                        parameters.push(obj.aoData[i]._aData);
+//                    }
+//                }
 
-            }
-            // dom:'<"html5buttons"B>i',
+            },
+             dom:'<"top">frt<"bottom"ilp><"clear">',
+
 //                dom: '<"html5buttons"B>lTfgitp',
 //                buttons: [
 //                    { extend: 'copy'},
@@ -679,7 +875,7 @@
                 return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
                     return '<strong>' + match + '</strong>'
                 })
-            }, items: all,
+            }, items: "all",
         });
     });
     $('#addParameter').on('click', function () {
@@ -691,6 +887,17 @@
             success: function (data) {
                 console.log(data.message)
 //                    parameter.refresh();
+
+            }
+        });
+    });
+    $('#addConfig').on('click', function () {
+        $.ajax({
+            type: "post",
+            url: "/config/add",
+            data: $('#configForm').serialize(),
+            success: function (data) {
+                console.log(data.message);
 
             }
         });

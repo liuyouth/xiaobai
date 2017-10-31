@@ -3,7 +3,6 @@ import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import com.company.project.core.TableResult;
 import com.company.project.model.Parameter;
-import com.company.project.model.PhoneColor;
 import com.company.project.service.ParameterService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -13,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2017/10/26.
+* Created by CodeGenerator on 2017/10/31.
 */
 @RestController
 @RequestMapping("/parameter")
@@ -43,6 +42,14 @@ public class ParameterController {
     public Result detail(@RequestParam Integer id) {
         Parameter parameter = parameterService.findById(id);
         return ResultGenerator.genSuccessResult(parameter);
+    }
+
+    @PostMapping("/list")
+    public Result alist(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+        PageHelper.startPage(page, size);
+        List<Parameter> list = parameterService.findAll();
+        PageInfo pageInfo = new PageInfo(list);
+        return ResultGenerator.genSuccessResult(pageInfo);
     }
 
     @GetMapping("/list")

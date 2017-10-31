@@ -7,9 +7,20 @@ public class Config {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer parameter;
+    @Column(name = "parameter_id")
+    private Integer parameterId;
 
     private String name;
+    @Transient
+private Parameter parameter;
+
+    public Parameter getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(Parameter parameter) {
+        this.parameter = parameter;
+    }
 
     /**
      * @return id
@@ -26,17 +37,17 @@ public class Config {
     }
 
     /**
-     * @return parameter
+     * @return parameter_id
      */
-    public Integer getParameter() {
-        return parameter;
+    public Integer getParameterId() {
+        return parameterId;
     }
 
     /**
-     * @param parameter
+     * @param parameterId
      */
-    public void setParameter(Integer parameter) {
-        this.parameter = parameter;
+    public void setParameterId(Integer parameterId) {
+        this.parameterId = parameterId;
     }
 
     /**

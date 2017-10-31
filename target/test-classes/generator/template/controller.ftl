@@ -1,5 +1,6 @@
 package ${basePackage}.web;
 import ${basePackage}.core.Result;
+import ${basePackage}.core.TableResult;
 import ${basePackage}.core.ResultGenerator;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.service.${modelNameUpperCamel}Service;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -47,10 +48,19 @@ public class ${modelNameUpperCamel}Controller {
     }
 
     @PostMapping("/list")
-    public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public Result alist(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
+    }
+
+    @GetMapping("/list")
+    public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
+        PageHelper.startPage(page, limit,true);
+        List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAllRely();
+        PageInfo<${modelNameUpperCamel}> pageInfo = new PageInfo<${modelNameUpperCamel}>(list);
+        long total = pageInfo.getTotal(); //获取总记录数
+        return new TableResult().setCode(0).setCount(total).setData(list);
     }
 }

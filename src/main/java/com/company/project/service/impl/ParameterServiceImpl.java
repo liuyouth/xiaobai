@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
+import java.util.List;
 
 /**
- * Created by CodeGenerator on 2017/10/26.
+ * Created by CodeGenerator on 2017/10/31.
  */
 @Service
 @Transactional
@@ -19,4 +19,8 @@ public class ParameterServiceImpl extends AbstractService<Parameter> implements 
     @Resource
     private ParameterMapper parameterMapper;
 
+    @Override
+    public List<Parameter> findAllRely(){
+        return parameterMapper.findAllRely();
+    }
 }

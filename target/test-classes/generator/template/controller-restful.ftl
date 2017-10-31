@@ -51,4 +51,5 @@ public class ${modelNameUpperCamel}Controller {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+
 }

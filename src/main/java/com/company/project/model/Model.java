@@ -19,12 +19,12 @@ public class Model {
     @Column(name = "network_lock")
     private Integer networkLock;
 
-    @Column(name = "create_time")
-    private Integer createTime;
-
     private Integer price;
 
     private Integer form;
+
+    @Column(name = "create_time")
+    private String createTime;
 
     /**
      * @return id
@@ -111,20 +111,6 @@ public class Model {
     }
 
     /**
-     * @return create_time
-     */
-    public Integer getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     * @param createTime
-     */
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
      * @return price
      */
     public Integer getPrice() {
@@ -150,5 +136,19 @@ public class Model {
      */
     public void setForm(Integer form) {
         this.form = form;
+    }
+
+    /**
+     * @return create_time
+     */
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * @param createTime
+     */
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

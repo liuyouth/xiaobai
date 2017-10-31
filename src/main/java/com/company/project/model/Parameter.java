@@ -4,36 +4,37 @@ import javax.persistence.*;
 
 public class Parameter {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "parameter_id")
+    private Integer parameterId;
 
-    private String name;
+    @Column(name = "parameter_name")
+    private String parameterName;
 
     /**
-     * @return id
+     * @return parameter_id
      */
-    public Integer getId() {
-        return id;
+    public Integer getParameterId() {
+        return parameterId;
     }
 
     /**
-     * @param id
+     * @param parameterId
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setParameterId(Integer parameterId) {
+        this.parameterId = parameterId;
     }
 
     /**
-     * @return name
+     * @return parameter_name
      */
-    public String getName() {
-        return name;
+    public String getParameterName() {
+        return parameterName;
     }
 
     /**
-     * @param name
+     * @param parameterName
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setParameterName(String parameterName) {
+        this.parameterName = parameterName;
     }
 }

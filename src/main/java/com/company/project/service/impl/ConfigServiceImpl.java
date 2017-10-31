@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
+import java.util.List;
 
 /**
- * Created by CodeGenerator on 2017/10/26.
+ * Created by CodeGenerator on 2017/10/31.
  */
 @Service
 @Transactional
@@ -19,4 +19,8 @@ public class ConfigServiceImpl extends AbstractService<Config> implements Config
     @Resource
     private ConfigMapper configMapper;
 
+    @Override
+    public List<Config> findAllRely(){
+        return configMapper.findAllRely();
+    }
 }
