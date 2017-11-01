@@ -53,11 +53,19 @@ public class ConfigController {
     }
 
     @GetMapping("/list")
-    public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
+    public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit
+            ,@RequestParam(defaultValue = "") String parameter) {
         PageHelper.startPage(page, limit,true);
-        List<Config> list = configService.findAllRely();
-        PageInfo<Config> pageInfo = new PageInfo<Config>(list);
-        long total = pageInfo.getTotal(); //获取总记录数
-        return new TableResult().setCode(0).setCount(total).setData(list);
+        if ("".equals(parameter)){
+            List<Config> list = configService.findAllRely();
+            PageInfo<Config> pageInfo = new PageInfo<Config>(list);
+            long total = pageInfo.getTotal(); //获取总记录数
+            return new TableResult().setCode(0).setCount(total).setData(list);
+        }else{
+            List<Config> list = configService.findAllRelyWhereParameter(parameter);
+            PageInfo<Config> pageInfo = new PageInfo<Config>(list);
+            long total = pageInfo.getTotal(); //获取总记录数
+            return new TableResult().setCode(0).setCount(total).setData(list);
+        }
     }
 }

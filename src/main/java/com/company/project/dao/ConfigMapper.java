@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ConfigMapper extends Mapper<Config> {
     List<Config> findAllRely();
+    List<Config> findAllRelyWhereParameter(String name);
 }

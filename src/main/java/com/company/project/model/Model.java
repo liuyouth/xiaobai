@@ -7,24 +7,38 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer model;
+    @Column(name = "model_id")
+    private Integer modelId;
 
-    private Integer memory;
+    @Column(name = "memory_id")
+    private Integer memoryId;
 
-    private Integer color;
+    @Column(name = "color_id")
+    private Integer colorId;
 
-    @Column(name = "support_network")
-    private Integer supportNetwork;
+    @Column(name = "support_network_id")
+    private Integer supportNetworkId;
 
-    @Column(name = "network_lock")
-    private Integer networkLock;
+    @Column(name = "network_lock_id")
+    private Integer networkLockId;
 
     private Integer price;
 
-    private Integer form;
+    @Column(name = "form_id")
+    private Integer formId;
 
     @Column(name = "create_time")
     private String createTime;
+    @Transient
+    private Config model;
+
+    public Config getModel() {
+        return model;
+    }
+
+    public void setModel(Config model) {
+        this.model = model;
+    }
 
     /**
      * @return id
@@ -41,73 +55,73 @@ public class Model {
     }
 
     /**
-     * @return model
+     * @return model_id
      */
-    public Integer getModel() {
-        return model;
+    public Integer getModelId() {
+        return modelId;
     }
 
     /**
-     * @param model
+     * @param modelId
      */
-    public void setModel(Integer model) {
-        this.model = model;
+    public void setModelId(Integer modelId) {
+        this.modelId = modelId;
     }
 
     /**
-     * @return memory
+     * @return memory_id
      */
-    public Integer getMemory() {
-        return memory;
+    public Integer getMemoryId() {
+        return memoryId;
     }
 
     /**
-     * @param memory
+     * @param memoryId
      */
-    public void setMemory(Integer memory) {
-        this.memory = memory;
+    public void setMemoryId(Integer memoryId) {
+        this.memoryId = memoryId;
     }
 
     /**
-     * @return color
+     * @return color_id
      */
-    public Integer getColor() {
-        return color;
+    public Integer getColorId() {
+        return colorId;
     }
 
     /**
-     * @param color
+     * @param colorId
      */
-    public void setColor(Integer color) {
-        this.color = color;
+    public void setColorId(Integer colorId) {
+        this.colorId = colorId;
     }
 
     /**
-     * @return support_network
+     * @return support_network_id
      */
-    public Integer getSupportNetwork() {
-        return supportNetwork;
+    public Integer getSupportNetworkId() {
+        return supportNetworkId;
     }
 
     /**
-     * @param supportNetwork
+     * @param supportNetworkId
      */
-    public void setSupportNetwork(Integer supportNetwork) {
-        this.supportNetwork = supportNetwork;
+    public void setSupportNetworkId(Integer supportNetworkId) {
+        this.supportNetworkId = supportNetworkId;
     }
 
     /**
-     * @return network_lock
+     * @return network_lock_id
      */
-    public Integer getNetworkLock() {
-        return networkLock;
+    public Integer getNetworkLockId() {
+        return networkLockId;
     }
 
     /**
-     * @param networkLock
+     * @param networkLockId
      */
-    public void setNetworkLock(Integer networkLock) {
-        this.networkLock = networkLock;
+    public void setNetworkLockId(Integer networkLockId) {
+        this.networkLockId = networkLockId;
     }
 
     /**
@@ -125,17 +139,17 @@ public class Model {
     }
 
     /**
-     * @return form
+     * @return form_id
      */
-    public Integer getForm() {
-        return form;
+    public Integer getFormId() {
+        return formId;
     }
 
     /**
-     * @param form
+     * @param formId
      */
-    public void setForm(Integer form) {
-        this.form = form;
+    public void setFormId(Integer formId) {
+        this.formId = formId;
     }
 
     /**

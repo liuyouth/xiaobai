@@ -23,4 +23,9 @@ public class ConfigServiceImpl extends AbstractService<Config> implements Config
     public List<Config> findAllRely(){
         return configMapper.findAllRely();
     }
+
+    @Override
+    public List<Config> findAllRelyWhereParameter(String name) {
+        return configMapper.findAllRelyWhereParameter(name);
+    }
 }

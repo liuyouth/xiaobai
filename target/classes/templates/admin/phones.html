@@ -12,6 +12,7 @@
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
@@ -422,7 +423,7 @@
                 <div class="col-lg-9">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>配置</h5>
+                            <h5>手机报价记录</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -451,30 +452,79 @@
                                     <form id="modelForm" class="form-horizontal">
                                         <p> // 选择参数类型填写对应的参数值 </p>
 
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="input-group">
 
-                                                    <input name="parameter" id="colorAutoHide" type="hidden">
+
+                                                <div class="input-group left">
+
+                                                    <input name="modelId" id="modelAutoHide" type="hidden">
+                                                    <input type="text" id="modelAuto" placeholder="型号...单选"
+                                                           class=" typeahead_3 form-control"/>
+                                                </div>
+                                                <div class="input-group left">
+
+                                                    <input name="colorId" id="colorAutoHide" type="hidden">
                                                     <input type="text" id="colorAuto" placeholder="颜色...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                    <input name="parameter" id="networkAutoHide" type="hidden">
-                                                    <input type="text" id="networkAuto" placeholder="支持网络...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                            class=" typeahead_3 form-control"/>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-9">
-                                                <div class="input-group">
+                                                <div class="input-group left">
 
-                                                    <input type="text" class="form-control" name="name"
-                                                           placeholder="参数名称">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" id="addModel"
-                                                                class="btn btn-primary">添加！</button>
-                                                    </span>
+                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
                                                 </div>
+                                                <div class="input-group left">
+
+                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                </div>
+
+
+                                                <div class="input-group left">
+
+                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                </div>
+                                                <div class="input-group left">
+
+                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                </div>
+                                                <div class="input-group left">
+
+                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
+                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                </div>
+                                        <div class="form-group left" id="data_1">
+                                            <div class="input-group date " style="float: left;width: 90%;padding-left: 18px;">
+                                                        <span class="input-group-addon" style="">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                <input class="form-control" type="text" value="01/11/2017">
+
                                             </div>
+                                            <span class="input-group-btn" style="float: left;">
+                                                            <button class="btn btn-primary" type="button">Go!</button>
+                                                        </span>
                                         </div>
+                                        <div class="clear"></div>
+
+
+                                            <!--<div class="col-lg-9">-->
+                                                <!--<div class="input-group">-->
+
+                                                    <!--<input type="text" class="form-control" name="name"-->
+                                                           <!--placeholder="参数名称">-->
+                                                    <!--<span class="input-group-btn">-->
+                                                        <!--<button type="button" id="addModel"-->
+                                                                <!--class="btn btn-primary">添加！</button>-->
+                                                    <!--</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
                                     </form>
                                 </div>
                             </div>
@@ -523,25 +573,46 @@
                                     <form id="businessForm" class="form-horizontal">
                                         <p> // 选择参数类型填写对应的参数值 </p>
 
+
                                         <div class="row">
                                             <div class="col-lg-3">
                                                 <div class="input-group">
 
-                                                    <input type="text"  placeholder="姓名"
-                                                           name="name" class="form-control"/>
-                                                    <input type="text"  placeholder="手机号"
+                                                    <input type="text" placeholder="姓名"
+                                                           name="businessName" class="form-control"/>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="手机号"
                                                            name="phone" class=" form-control"/>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-9">
+                                            <div class="col-lg-2">
+                                                <div><label> <input type="radio" checked="" value="1"
+                                                                    id="optionsRadios1" name="onBehalf">
+                                                    可代发</label></div>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div><label> <input type="radio" value="0" id="onBehalf"
+                                                                    name="optionsRadios"> 不可代发
+                                                </label></div>
+                                            </div>
+                                            <div class="col-lg-2">
+
                                                 <div class="input-group">
                                                     <span class="input-group-btn">
                                                         <button type="button" id="addbusiness"
                                                                 class="btn btn-primary">添加！</button>
                                                     </span>
+
+
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </form>
                                 </div>
                             </div>
@@ -697,6 +768,9 @@
 <script src="../js/plugins/pace/pace.min.js"></script>
 <!-- Typehead -->
 <script src="../js/plugins/typehead/bootstrap3-typeahead.min.js"></script>
+<!-- Data picker -->
+<script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
 <!-- Page-Level Scripts -->
 <script>
     var parameter;
@@ -704,6 +778,15 @@
     var business;
     var model;
     $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+
         model = $('.dataTables-model').DataTable({
             select: true,
             ajax: {
@@ -714,13 +797,34 @@
                     data: 'id',
                     "title": "序号",
                     defaultContent: "无"
-                    ,width:"50px"
+                    , width: "50px"
                 }, {
-                    data: 'model',
+                    data: 'model.name',
                     title: "型号"
                 }, {
-                    data: 'color',
+                    data: 'color.name',
                     title: "颜色",
+                },{
+                    data: 'supportNetwork.name',
+                    title: "支持网络",
+                },{
+                    data: 'networkLock.name',
+                    title: "网络锁",
+                },{
+                    data: 'price',
+                    title: "价格",
+                },{
+                    data: 'createTime',
+                    title: "报价时间",
+                },{
+                    data: 'form.businessName',
+                    title: "供货商",
+                },{
+                    data: null,
+                    title: "操作",
+                    render:function (data,row) {
+                        return data;
+                    }
                 },
 
 
@@ -735,10 +839,10 @@
             },
             columns: [
                 {
-                    data: 'id',
+                    data: 'businessId',
                     "title": "序号",
                     defaultContent: "无"
-                    ,width:"50px"
+                    , width: "50px"
                 }
                 , {
                     data: 'businessName',
@@ -746,11 +850,11 @@
                 }, {
                     data: 'phone',
                     title: "手机号"
-                },{
-                    data:"onBehalf",
-                    title:"是否支持代发",
-                    "":function (data) {
-                        return (data==0) ? "不支持":"支持"
+                }, {
+                    data: "onBehalf",
+                    title: "是否支持代发",
+                    render: function (data) {
+                        return (data == "true") ? "不支持" : "支持"
                     }
                 }
 
@@ -769,7 +873,7 @@
                     data: 'id',
                     "title": "序号",
                     defaultContent: "无"
-                    ,width:"50px"
+                    , width: "50px"
                 }
                 , {
                     data: 'parameter.parameterName',
@@ -795,7 +899,7 @@
                     data: 'parameterId',
                     "title": "序号",
                     defaultContent: "无",
-                    width:"50px"
+                    width: "50px"
                 }
                 , {
                     data: 'parameterName',
@@ -803,15 +907,6 @@
                     defaultContent: '<input name="name" placeholder="填写名字">'
                 }
 
-//                , {
-//                    targets: -1,
-//                    data: "id",
-//                    titile: "操作",
-//                    "": function (data, type, full) {
-//                        return data;
-//                    },
-//                    defaultContent: "<button onclick='cellParameter(this)'>添加!</button>"
-//                }
             ],
             pageLength: 25,
             responsive: true,
@@ -824,7 +919,7 @@
 //                }
 
             },
-             dom:'<"top">frt<"bottom"ilp><"clear">',
+            dom: '<"top">frt<"bottom"ilp><"clear">',
 
 //                dom: '<"html5buttons"B>lTfgitp',
 //                buttons: [
@@ -846,7 +941,71 @@
 //                ]
 
         });
-
+        modelAutoHide
+        $('#modelAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/config/list',
+                    type: 'get',
+                    data: {name: query,parameter:"4"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.parameterId, name: item.name};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#modelAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj!="{}"){
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+        $('#colorAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/config/list',
+                    type: 'get',
+                    data: {name: query,parameter:"2"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.parameterId, name: item.name};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#colorAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj!="{}"){
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
         $('#parameterAuto').typeahead({
             source: function (query, process) {
                 return $.ajax({
@@ -855,7 +1014,7 @@
                     data: {name: query},
                     success: function (result) {
                         var resultList = result.data.map(function (item) {
-                            var aItem = {id: item.id, name: item.name};
+                            var aItem = {id: item.parameterId, name: item.parameterName};
                             return JSON.stringify(aItem);
                         });
                         return process(resultList);
@@ -870,11 +1029,13 @@
                 $('#parameterAutoHide').attr('value', item.id);
                 return item.name;
             }, highlighter: function (obj) {
+                if (obj!="{}"){
                 var item = JSON.parse(obj);
                 var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
                 return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
                     return '<strong>' + match + '</strong>'
                 })
+                }
             }, items: "all",
         });
     });
@@ -896,6 +1057,18 @@
             type: "post",
             url: "/config/add",
             data: $('#configForm').serialize(),
+            success: function (data) {
+                console.log(data.message);
+
+            }
+        });
+    });
+    $('#addbusiness').on('click', function () {
+
+        $.ajax({
+            type: "post",
+            url: "/business/add",
+            data: $('#businessForm').serialize(),
             success: function (data) {
                 console.log(data.message);
 

@@ -38,6 +38,14 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+.left{
+  float: left;
+  margin: 3px;
+}
+.clear{
+  clear: both;
+}
+
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
