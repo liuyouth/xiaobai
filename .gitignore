@@ -10,7 +10,6 @@ spring-boot-api-project-seed.iml
 .idea/workspace.xml
 
 spring-boot-api-project-seed.iml
-*.xml
 *.iml
 
 .idea/workspace.xml
