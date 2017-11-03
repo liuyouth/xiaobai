@@ -74,7 +74,7 @@ public class ModelController {
             m.setMemory(configService.findById(m.getMemoryId()));
             m.setModel(configService.findById(m.getModelId()));
             m.setNetworkLock(configService.findById(m.getNetworkLockId()));
-            m.setSupportNetwork(configService.findById(m.getNetworkLockId()));
+            m.setSupportNetwork(configService.findById(m.getSupportNetworkId()));
             resultList.add(m);
         }
 
