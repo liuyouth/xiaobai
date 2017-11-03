@@ -16,31 +16,31 @@
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
   </resultMap>
   <resultMap id="RelyBaseResultMap" type="com.company.project.model.Model" extends="BaseResultMap">
-    <association column="model_id" javaType="com.company.project.model.Config" property="model">
-      <id column="id" jdbcType="INTEGER" property="id" />
-      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
-    </association>
-    <association column="memory_id" javaType="com.company.project.model.Config" property="memory">
-      <id column="id" jdbcType="INTEGER" property="id" />
-      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
-    </association>
-    <association column="color_id" javaType="com.company.project.model.Config" property="color">
-      <id column="id" jdbcType="INTEGER" property="id" />
-      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
-    </association>
-    <association column="support_network_id" javaType="com.company.project.model.Config" property="supportNetwork">
-      <id column="id" jdbcType="INTEGER" property="id" />
-      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
-    </association>
-    <association column="network_lock_id" javaType="com.company.project.model.Config" property="networkLock">
-      <id column="id" jdbcType="INTEGER" property="id" />
-      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
-    </association>
+    <!--<association column="model_id" javaType="com.company.project.model.Config" property="model">-->
+      <!--<id column="id" jdbcType="INTEGER" property="id" />-->
+      <!--<result column="parameter_id" jdbcType="INTEGER" property="parameterId" />-->
+      <!--<result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--</association>-->
+    <!--<association column="memory_id" javaType="com.company.project.model.Config" property="memory">-->
+      <!--<id column="id" jdbcType="INTEGER" property="id" />-->
+      <!--<result column="parameter_id" jdbcType="INTEGER" property="parameterId" />-->
+      <!--<result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--</association>-->
+    <!--<association column="color_id" javaType="com.company.project.model.Config" property="color">-->
+      <!--<id column="id" jdbcType="INTEGER" property="id" />-->
+      <!--<result column="parameter_id" jdbcType="INTEGER" property="parameterId" />-->
+      <!--<result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--</association>-->
+    <!--<association column="support_network_id" javaType="com.company.project.model.Config" property="supportNetwork">-->
+      <!--<id column="id" jdbcType="INTEGER" property="id" />-->
+      <!--<result column="parameter_id" jdbcType="INTEGER" property="parameterId" />-->
+      <!--<result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--</association>-->
+    <!--<association column="network_lock_id" javaType="com.company.project.model.Config" property="networkLock">-->
+      <!--<id column="id" jdbcType="INTEGER" property="id" />-->
+      <!--<result column="parameter_id" jdbcType="INTEGER" property="parameterId" />-->
+      <!--<result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--</association>-->
     <association column="form_id" javaType="com.company.project.model.Business" property="business">
       <id column="business_id" jdbcType="INTEGER" property="businessId" />
       <result column="business_name" jdbcType="VARCHAR" property="businessName" />
@@ -49,14 +49,9 @@
     </association>
   </resultMap>
   <select id="findAllRely" resultMap="RelyBaseResultMap">
-    SELECT *
-    FROM model m
-    inner JOIN config c ON m.model_id = c.id
-    inner JOIN config cm ON m.memory_id = cm.id
-      inner JOIN config cc ON m.color_id = cc.id
-    inner JOIN config cs ON m.support_network_id = cs.id
-      inner JOIN config cn ON m.network_lock_id = cn.id
-    inner JOIN business b ON m.form_id = b.business_id
+   SELECT *
+    FROM model as m
+LEFT JOIN business b ON m.form_id = b.business_id
 
   </select>
   <!--inner-->

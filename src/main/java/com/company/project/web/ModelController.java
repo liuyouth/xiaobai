@@ -3,6 +3,7 @@ import com.company.project.core.Result;
 import com.company.project.core.TableResult;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.Model;
+import com.company.project.service.ConfigService;
 import com.company.project.service.ModelService;
 import com.company.project.utils.DateUtils;
 import com.github.pagehelper.PageHelper;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +25,8 @@ import java.util.List;
 public class ModelController {
     @Resource
     private ModelService modelService;
+    @Resource
+    private ConfigService configService;
 
     @PostMapping("/add")
     public Result add(Model model) {
@@ -64,8 +68,18 @@ public class ModelController {
     public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
         PageHelper.startPage(page, limit,true);
         List<Model> list = modelService.findAllRely();
-        PageInfo<Model> pageInfo = new PageInfo<Model>(list);
+        List<Model> resultList =new ArrayList<>();
+        for (Model m:list) {
+            m.setColor(configService.findById(m.getColorId()));
+            m.setMemory(configService.findById(m.getMemoryId()));
+            m.setModel(configService.findById(m.getModelId()));
+            m.setNetworkLock(configService.findById(m.getNetworkLockId()));
+            m.setSupportNetwork(configService.findById(m.getNetworkLockId()));
+            resultList.add(m);
+        }
+
+        PageInfo<Model> pageInfo = new PageInfo<Model>(resultList);
         long total = pageInfo.getTotal(); //获取总记录数
-        return new TableResult().setCode(0).setCount(total).setData(list);
+        return new TableResult().setCode(0).setCount(total).setData(resultList);
     }
 }
