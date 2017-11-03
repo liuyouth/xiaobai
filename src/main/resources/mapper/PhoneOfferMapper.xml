@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PhoneOfferMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.PhoneOffer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="in_name" jdbcType="VARCHAR" property="inName" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="size" jdbcType="INTEGER" property="size" />
+    <result column="is_Intact" jdbcType="BIT" property="isIntact" />
+    <result column="model_id" jdbcType="INTEGER" property="modelId" />
+    <result column="color_id" jdbcType="INTEGER" property="colorId" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="in_price" jdbcType="DOUBLE" property="inPrice" />
+  </resultMap>
+</mapper>

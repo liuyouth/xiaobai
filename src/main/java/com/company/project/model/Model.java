@@ -31,6 +31,16 @@ public class Model {
     private String createTime;
     @Transient
     private Config model;
+    @Transient
+    private Config memory;
+    @Transient
+    private Config color;
+    @Transient
+    private Config supportNetwork;
+    @Transient
+    private Config networkLock;
+    @Transient
+    private Business business ;
 
     public Config getModel() {
         return model;
@@ -38,6 +48,46 @@ public class Model {
 
     public void setModel(Config model) {
         this.model = model;
+    }
+
+    public Config getMemory() {
+        return memory;
+    }
+
+    public void setMemory(Config memory) {
+        this.memory = memory;
+    }
+
+    public Config getColor() {
+        return color;
+    }
+
+    public void setColor(Config color) {
+        this.color = color;
+    }
+
+    public Config getSupportNetwork() {
+        return supportNetwork;
+    }
+
+    public void setSupportNetwork(Config supportNetwork) {
+        this.supportNetwork = supportNetwork;
+    }
+
+    public Config getNetworkLock() {
+        return networkLock;
+    }
+
+    public void setNetworkLock(Config networkLock) {
+        this.networkLock = networkLock;
+    }
+
+    public Business getBusiness() {
+        return business;
+    }
+
+    public void setBusiness(Business business) {
+        this.business = business;
     }
 
     /**

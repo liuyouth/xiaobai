@@ -4,6 +4,7 @@ import com.company.project.core.TableResult;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.Model;
 import com.company.project.service.ModelService;
+import com.company.project.utils.DateUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,11 @@ public class ModelController {
 
     @PostMapping("/add")
     public Result add(Model model) {
+        if (null==model.getCreateTime() || "".equals(model.getCreateTime())){
+            model.setCreateTime(DateUtils.getDate());
+        }
         modelService.save(model);
+
         return ResultGenerator.genSuccessResult();
     }
 

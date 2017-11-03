@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.ModelMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Model">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="model_id" jdbcType="INTEGER" property="modelId" />
+    <result column="memory_id" jdbcType="INTEGER" property="memoryId" />
+    <result column="color_id" jdbcType="INTEGER" property="colorId" />
+    <result column="support_network_id" jdbcType="INTEGER" property="supportNetworkId" />
+    <result column="network_lock_id" jdbcType="INTEGER" property="networkLockId" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="form_id" jdbcType="INTEGER" property="formId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+  <resultMap id="RelyBaseResultMap" type="com.company.project.model.Model" extends="BaseResultMap">
+    <association column="model_id" javaType="com.company.project.model.Config" property="model">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+    <association column="memory_id" javaType="com.company.project.model.Config" property="memory">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+    <association column="color_id" javaType="com.company.project.model.Config" property="color">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+    <association column="support_network_id" javaType="com.company.project.model.Config" property="supportNetwork">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+    <association column="network_lock_id" javaType="com.company.project.model.Config" property="networkLock">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+    <association column="form_id" javaType="com.company.project.model.Business" property="business">
+      <id column="business_id" jdbcType="INTEGER" property="businessId" />
+      <result column="business_name" jdbcType="VARCHAR" property="businessName" />
+      <result column="phone" jdbcType="VARCHAR" property="phone" />
+      <result column="on_behalf" jdbcType="BIT" property="onBehalf" />
+    </association>
+  </resultMap>
+  <select id="findAllRely" resultMap="RelyBaseResultMap">
+    SELECT *
+    FROM model m
+    inner JOIN config c ON m.model_id = c.id
+    inner JOIN config cm ON m.memory_id = cm.id
+      inner JOIN config cc ON m.color_id = cc.id
+    inner JOIN config cs ON m.support_network_id = cs.id
+      inner JOIN config cn ON m.network_lock_id = cn.id
+    inner JOIN business b ON m.form_id = b.business_id
+
+  </select>
+  <!--inner-->
+  <!--LEFT JOIN config c ON m.model_id = c.id-->
+  <!--LEFT JOIN config cm ON m.memory_id = cm.id-->
+  <!--LEFT JOIN config cc ON m.color_id = cc.id-->
+  <!--LEFT JOIN config cs ON m.support_network_id = cs.id-->
+  <!--LEFT JOIN config cn ON m.network_lock_id = cn.id-->
+  <!--LEFT JOIN business b ON m.form_id = b.business_id-->
+</mapper>

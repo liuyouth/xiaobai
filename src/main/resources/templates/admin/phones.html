@@ -453,77 +453,76 @@
                                         <p> // 选择参数类型填写对应的参数值 </p>
 
 
+                                        <div class="input-group left">
 
-                                                <div class="input-group left">
+                                            <input name="modelId" id="modelAutoHide" type="hidden">
+                                            <input type="text" id="modelAuto" placeholder="型号...单选"
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
+                                        <div class="input-group left">
 
-                                                    <input name="modelId" id="modelAutoHide" type="hidden">
-                                                    <input type="text" id="modelAuto" placeholder="型号...单选"
-                                                           class=" typeahead_3 form-control"/>
-                                                </div>
-                                                <div class="input-group left">
+                                            <input name="memoryId" id="memoryAutoHide" type="hidden">
+                                            <input type="text" id="memoryAuto" placeholder="内存...单选"
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
+                                        <div class="input-group left">
 
-                                                    <input name="colorId" id="colorAutoHide" type="hidden">
-                                                    <input type="text" id="colorAuto" placeholder="颜色...单选"
-                                                            class=" typeahead_3 form-control"/>
-                                                </div>
-                                                <div class="input-group left">
+                                            <input name="colorId" id="colorAutoHide" type="hidden">
+                                            <input type="text" id="colorAuto" placeholder="颜色...单选"
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
 
-                                                    <input name="memory" id="parameterAutoHide" type="hidden">
-                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                </div>
-                                                <div class="input-group left">
+                                        <div class="input-group left">
 
-                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
-                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                </div>
+                                            <input name="supportNetworkId" id="supportNetworkAutoHide" type="hidden">
+                                            <input type="text" id="supportNetworkAuto" placeholder="网络支持...单选"
+
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
 
 
-                                                <div class="input-group left">
+                                        <div class="input-group left">
 
-                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
-                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                </div>
-                                                <div class="input-group left">
+                                            <input name="networkLockId" id="networkLockAutoHide" type="hidden">
+                                            <input type="text" id="networkLockAuto" placeholder="网络锁...单选"
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
+                                        <div class="input-group left">
 
-                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
-                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                </div>
-                                                <div class="input-group left">
-
-                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
-                                                    <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
-                                                </div>
-                                        <div class="form-group left" id="data_1">
-                                            <div class="input-group date " style="float: left;width: 90%;padding-left: 18px;">
+                                            <input name="formId" id="formAutoHide" type="hidden">
+                                            <input type="text" id="formAuto" placeholder="供货商...单选"
+                                                   class=" typeahead_3 form-control"/>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group" id="data_1">
+                                                    <div class="input-group date "
+                                                         style="float: left;padding-left: 18px;">
                                                         <span class="input-group-addon" style="">
                                                             <i class="fa fa-calendar"></i>
                                                         </span>
-                                                <input class="form-control" type="text" value="01/11/2017">
+                                                        <input class="form-control" type="text" value="01/11/2017">
 
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                            <span class="input-group-btn" style="float: left;">
-                                                            <button class="btn btn-primary" type="button">Go!</button>
-                                                        </span>
+
+
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <input type="text" name="price" class="form-control"
+                                                           placeholder="请输入拿货价格"/>
+                                                    <span class="input-group-btn">
+                                                        <button type="button" id="addModel"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
+
+
                                         <div class="clear"></div>
-
-
-                                            <!--<div class="col-lg-9">-->
-                                                <!--<div class="input-group">-->
-
-                                                    <!--<input type="text" class="form-control" name="name"-->
-                                                           <!--placeholder="参数名称">-->
-                                                    <!--<span class="input-group-btn">-->
-                                                        <!--<button type="button" id="addModel"-->
-                                                                <!--class="btn btn-primary">添加！</button>-->
-                                                    <!--</span>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
 
                                     </form>
                                 </div>
@@ -595,8 +594,8 @@
                                                     可代发</label></div>
                                             </div>
                                             <div class="col-lg-2">
-                                                <div><label> <input type="radio" value="0" id="onBehalf"
-                                                                    name="optionsRadios"> 不可代发
+                                                <div><label> <input type="radio" value="0" id="optionsRadios2"
+                                                                    name="onBehalf"> 不可代发
                                                 </label></div>
                                             </div>
                                             <div class="col-lg-2">
@@ -661,9 +660,9 @@
                                             <div class="col-lg-3">
                                                 <div class="input-group">
 
-                                                    <input name="parameter" id="parameterAutoHide" type="hidden">
+                                                    <input name="parameterId" id="parameterAutoHide" type="hidden">
                                                     <input type="text" id="parameterAuto" placeholder="parameter...单选"
-                                                           name="parameter" class=" typeahead_3 form-control"/>
+                                                           name="parameter.name" class=" typeahead_3 form-control"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-9">
@@ -722,7 +721,8 @@
                                     <form id="parameterForm" class="form-horizontal">
                                         <p> // 新添加需要修改数据库以及POJO类 </p>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="name" placeholder="参数名称">
+                                            <input type="text" class="form-control" name="parameterName"
+                                                   placeholder="参数名称">
                                             <span class="input-group-btn">
                                                 <button type="button" id="addParameter"
                                                         class="btn btn-primary">添加！</button>
@@ -802,27 +802,30 @@
                     data: 'model.name',
                     title: "型号"
                 }, {
+                    data: 'memory.name',
+                    title: "内存",
+                }, {
                     data: 'color.name',
                     title: "颜色",
-                },{
+                }, {
                     data: 'supportNetwork.name',
                     title: "支持网络",
-                },{
+                }, {
                     data: 'networkLock.name',
                     title: "网络锁",
-                },{
+                }, {
                     data: 'price',
                     title: "价格",
-                },{
+                }, {
                     data: 'createTime',
                     title: "报价时间",
-                },{
-                    data: 'form.businessName',
+                }, {
+                    data: 'business.businessName',
                     title: "供货商",
-                },{
+                }, {
                     data: null,
                     title: "操作",
-                    render:function (data,row) {
+                    render: function (data, row) {
                         return data;
                     }
                 },
@@ -947,7 +950,7 @@
                 return $.ajax({
                     url: '/config/list',
                     type: 'get',
-                    data: {name: query,parameter:"4"},
+                    data: {name: query, parameter: "1"},
                     success: function (result) {
                         var resultList = result.data.map(function (item) {
                             var aItem = {id: item.parameterId, name: item.name};
@@ -965,7 +968,39 @@
                 $('#modelAutoHide').attr('value', item.id);
                 return item.name;
             }, highlighter: function (obj) {
-                if (obj!="{}"){
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+        $('#memoryAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/config/list',
+                    type: 'get',
+                    data: {name: query, parameter: "2"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.parameterId, name: item.name};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#memoryAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj != "{}") {
                     var item = JSON.parse(obj);
                     var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
                     return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
@@ -979,7 +1014,7 @@
                 return $.ajax({
                     url: '/config/list',
                     type: 'get',
-                    data: {name: query,parameter:"2"},
+                    data: {name: query, parameter: "3"},
                     success: function (result) {
                         var resultList = result.data.map(function (item) {
                             var aItem = {id: item.parameterId, name: item.name};
@@ -997,7 +1032,71 @@
                 $('#colorAutoHide').attr('value', item.id);
                 return item.name;
             }, highlighter: function (obj) {
-                if (obj!="{}"){
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+        $('#supportNetworkAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/config/list',
+                    type: 'get',
+                    data: {name: query, parameter: "4"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.parameterId, name: item.name};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#supportNetworkAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+        $('#networkLockAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/config/list',
+                    type: 'get',
+                    data: {name: query, parameter: "5"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.parameterId, name: item.name};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#networkLockAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj != "{}") {
                     var item = JSON.parse(obj);
                     var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
                     return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
@@ -1029,14 +1128,61 @@
                 $('#parameterAutoHide').attr('value', item.id);
                 return item.name;
             }, highlighter: function (obj) {
-                if (obj!="{}"){
-                var item = JSON.parse(obj);
-                var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
-                return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
-                    return '<strong>' + match + '</strong>'
-                })
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
                 }
             }, items: "all",
+        });
+
+        $('#formAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/business/list',
+                    type: 'get',
+                    data: {name: query},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.businessId, name: item.businessName};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#formAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+    });
+
+    $('#addModel').on('click', function () {
+        console.log($('#modelForm').serialize());
+        $.ajax({
+            type: "post",
+            url: "/model/add",
+            data: $('#modelForm').serialize(),
+            success: function (data) {
+                if (data.message == "SUCCESS") {
+                    model.ajax.reload();
+                }
+            }
         });
     });
     $('#addParameter').on('click', function () {
@@ -1046,9 +1192,9 @@
             url: "/parameter/add",
             data: $('#parameterForm').serialize(),
             success: function (data) {
-                console.log(data.message)
-//                    parameter.refresh();
-
+                if (data.message == "SUCCESS") {
+                    parameter.ajax.reload();
+                }
             }
         });
     });
@@ -1058,8 +1204,9 @@
             url: "/config/add",
             data: $('#configForm').serialize(),
             success: function (data) {
-                console.log(data.message);
-
+                if (data.message == "SUCCESS") {
+                    config.ajax.reload();
+                }
             }
         });
     });
@@ -1070,8 +1217,10 @@
             url: "/business/add",
             data: $('#businessForm').serialize(),
             success: function (data) {
-                console.log(data.message);
 
+                if (data.message == "SUCCESS") {
+                    business.ajax.reload();
+                }
             }
         });
     });

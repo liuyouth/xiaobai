@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.ConfigMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Config">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="AndParameterResultMap" type="com.company.project.model.Config">
+    <association column="parameter" javaType="com.company.project.model.Parameter" property="parameter">
+      <id column="parameter_id" jdbcType="INTEGER" property="parameterId" />
+      <result column="parameter_name" jdbcType="VARCHAR" property="parameterName" />
+    </association>
+  </resultMap>
+
+  <!-- 查询team下的考勤组列表-->
+  <select id="findAllRely" resultMap="AndParameterResultMap">
+      SELECT
+    *
+    FROM
+    config c
+    LEFT JOIN parameter p ON c.parameter_id = p.parameter_id
+
+
+  </select>
+  <!-- 查询team下的考勤组列表-->
+  <select id="findAllRelyWhereParameter" resultMap="AndParameterResultMap">
+    SELECT
+    *
+    FROM
+    config c
+    LEFT JOIN parameter p ON c.parameter_id = p.parameter_id
+    WHERE p.parameter_id = #{name}
+
+  </select>
+</mapper>
