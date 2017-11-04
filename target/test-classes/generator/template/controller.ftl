@@ -58,7 +58,7 @@ public class ${modelNameUpperCamel}Controller {
     @GetMapping("/list")
     public TableResult list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
         PageHelper.startPage(page, limit,true);
-        List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAllRely();
+        List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo<${modelNameUpperCamel}> pageInfo = new PageInfo<${modelNameUpperCamel}>(list);
         long total = pageInfo.getTotal(); //获取总记录数
         return new TableResult().setCode(0).setCount(total).setData(list);

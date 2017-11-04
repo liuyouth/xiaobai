@@ -1,11 +1,16 @@
 import freemarker.template.TemplateExceptionHandler;
 import org.mybatis.generator.api.MyBatisGenerator;
+import org.mybatis.generator.api.ProgressCallback;
+import org.mybatis.generator.api.dom.java.CompilationUnit;
+import org.mybatis.generator.api.dom.java.Field;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.config.*;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.rmi.server.ExportException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -27,16 +32,17 @@ public class CodeGenerator {
 
     private static final String JAVA_PATH = "/src/main/java"; //java文件路径
     private static final String RESOURCES_PATH = "/src/main/resources";//资源文件路径
-
+    private static final String HTML_PATH = "/templates/ftl/"; //java文件路径
+    private static final String PACKAGE_PATH_MAPPER = packageConvertPath(MAPPER_PACKAGE);//生成的Mapper存放路径
     private static final String PACKAGE_PATH_SERVICE = packageConvertPath(SERVICE_PACKAGE);//生成的Service存放路径
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(SERVICE_IMPL_PACKAGE);//生成的Service实现存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(CONTROLLER_PACKAGE);//生成的Controller存放路径
 
-    private static final String AUTHOR = "CodeGenerator";//@author
+    private static final String AUTHOR = "GitHub Id = liuyouth";//@author
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-       genCode("parameter");
+       genCode("upin");
     }
 
     public static void genCode(String... tableNames) {
@@ -75,7 +81,9 @@ public class CodeGenerator {
         SqlMapGeneratorConfiguration sqlMapGeneratorConfiguration = new SqlMapGeneratorConfiguration();
         sqlMapGeneratorConfiguration.setTargetProject(PROJECT_PATH + RESOURCES_PATH);
         sqlMapGeneratorConfiguration.setTargetPackage("mapper");
+        sqlMapGeneratorConfiguration.toXmlElement();
         context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfiguration);
+
 
         JavaClientGeneratorConfiguration javaClientGeneratorConfiguration = new JavaClientGeneratorConfiguration();
         javaClientGeneratorConfiguration.setTargetProject(PROJECT_PATH + JAVA_PATH);
@@ -107,17 +115,46 @@ public class CodeGenerator {
         if (generator.getGeneratedJavaFiles().isEmpty() || generator.getGeneratedXmlFiles().isEmpty()) {
             throw new RuntimeException("生成Model和Mapper失败：" + warnings);
         }
-
+        System.out.println(generator.getGeneratedJavaFiles().size());
+        CompilationUnit cc = generator.getGeneratedJavaFiles().get(0).getCompilationUnit();
+        TopLevelClass d = (TopLevelClass) cc;
+        List<Field> files = d.getFields();
         String modelName = tableNameConvertUpperCamel(tableName);
+        genHtml(tableName,files);
         System.out.println(modelName + ".java 生成成功");
         System.out.println(modelName + "Mapper.java 生成成功");
         System.out.println(modelName + "Mapper.xml 生成成功");
     }
+    public static void genHtml(String tableName,List<Field> list) {
+        try{
+            freemarker.template.Configuration cfg = getConfiguration();
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
+            data.put("baseRequestMapping", tableNameConvertMappingPath(tableName));
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
+            data.put("basePackage", BASE_PACKAGE);
+            data.put("data", list);
 
+            File file2 = new File(PROJECT_PATH + RESOURCES_PATH + HTML_PATH+ tableNameConvertLowerCamel(tableName) + "_admin.html");
+            if (!file2.getParentFile().exists()) {
+                file2.getParentFile().mkdirs();
+                cfg.getTemplate("admin.ftl").process(data,
+                        new FileWriter(file2));
+                System.out.println(modelNameUpperCamel + "_admin.html 生成成功");
+            }else{
+                System.out.println(modelNameUpperCamel + "_admin.html 已存在");
+            }
+
+        } catch (Exception e){
+            throw new RuntimeException("生成Html失败", e);
+        }
+    }
     public static void genService(String tableName) {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
-
             Map<String, Object> data = new HashMap<>();
             data.put("date", DATE);
             data.put("author", AUTHOR);
@@ -125,6 +162,14 @@ public class CodeGenerator {
             data.put("modelNameUpperCamel", modelNameUpperCamel);
             data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
             data.put("basePackage", BASE_PACKAGE);
+
+            File file2 = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_MAPPER+ modelNameUpperCamel + "Mapper.java");
+            if (!file2.getParentFile().exists()) {
+                file2.getParentFile().mkdirs();
+            }
+            cfg.getTemplate("mapper.ftl").process(data,
+                    new FileWriter(file2));
+            System.out.println(modelNameUpperCamel + "重新定义 Mapper.java 生成成功");
 
             File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service.java");
             if (!file.getParentFile().exists()) {

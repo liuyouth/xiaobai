@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.UpinMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Upin">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <resultMap id="RulyResultMap" type="com.company.project.model.Upin" extends="BaseResultMap">
+    <association column="type_id" javaType="com.company.project.model.UpinType" property="type">
+      <id column="upin_type_id" jdbcType="INTEGER" property="upinTypeId" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+    </association>
+  </resultMap>
+  <select id="findAllRely" resultMap="RulyResultMap">
+    SELECT
+    *
+    FROM
+    upin u
+    LEFT JOIN upin_type t ON u.type_id = t.upin_type_id
+  </select>
+</mapper>
