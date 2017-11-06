@@ -1,0 +1,11 @@
+com/company/project/service/UpinService.class
+com/company/project/service/impl/UpinServiceImpl.class
+com/company/project/service/UpinTypeService.class
+com/company/project/web/UpinController.class
+com/company/project/dao/UpinTypeMapper.class
+com/company/project/service/impl/UpinTypeServiceImpl.class
+com/company/project/model/UpinType.class
+com/company/project/dao/UpinMapper.class
+com/company/project/web/UpinTypeController.class
+com/company/project/view/UpinViewController.class
+com/company/project/model/Upin.class

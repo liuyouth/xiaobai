@@ -6,6 +6,6 @@
       WARNING - @mbg.generated
     -->
     <id column="upin_type_id" jdbcType="INTEGER" property="upinTypeId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
   </resultMap>
 </mapper>

@@ -8,7 +8,8 @@ public class UpinType {
     @Column(name = "upin_type_id")
     private Integer upinTypeId;
 
-    private String name;
+    @Column(name = "type_name")
+    private String typeName;
 
     /**
      * @return upin_type_id
@@ -25,16 +26,16 @@ public class UpinType {
     }
 
     /**
-     * @return name
+     * @return type_name
      */
-    public String getName() {
-        return name;
+    public String getTypeName() {
+        return typeName;
     }
 
     /**
-     * @param name
+     * @param typeName
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }

@@ -13,10 +13,10 @@
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="url" jdbcType="VARCHAR" property="url" />
   </resultMap>
-  <resultMap id="RulyResultMap" type="com.company.project.model.Upin" extends="BaseResultMap">
+  <resultMap extends="BaseResultMap" id="RulyResultMap" type="com.company.project.model.Upin">
     <association column="type_id" javaType="com.company.project.model.UpinType" property="type">
       <id column="upin_type_id" jdbcType="INTEGER" property="upinTypeId" />
-      <result column="name" jdbcType="VARCHAR" property="name" />
+      <result column="type_name" jdbcType="VARCHAR" property="typeName" />
     </association>
   </resultMap>
   <select id="findAllRely" resultMap="RulyResultMap">

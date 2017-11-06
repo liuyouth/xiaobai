@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.TodoMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Todo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="todo_id" jdbcType="INTEGER" property="todoId" />
+    <result column="todo_title" jdbcType="VARCHAR" property="todoTitle" />
+    <result column="todo_type" jdbcType="VARCHAR" property="todoType" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="action_time" jdbcType="VARCHAR" property="actionTime" />
+    <result column="todu_info" jdbcType="VARCHAR" property="toduInfo" />
+  </resultMap>
+</mapper>

@@ -42,7 +42,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-       genCode("upin");
+       genCode("todo");
     }
 
     public static void genCode(String... tableNames) {
@@ -139,14 +139,14 @@ public class CodeGenerator {
             data.put("data", list);
 
             File file2 = new File(PROJECT_PATH + RESOURCES_PATH + HTML_PATH+ tableNameConvertLowerCamel(tableName) + "_admin.html");
+
             if (!file2.getParentFile().exists()) {
                 file2.getParentFile().mkdirs();
                 cfg.getTemplate("admin.ftl").process(data,
                         new FileWriter(file2));
-                System.out.println(modelNameUpperCamel + "_admin.html 生成成功");
-            }else{
-                System.out.println(modelNameUpperCamel + "_admin.html 已存在");
             }
+                System.out.println(modelNameUpperCamel + "_admin.html 生成成功");
+
 
         } catch (Exception e){
             throw new RuntimeException("生成Html失败", e);
@@ -172,20 +172,25 @@ public class CodeGenerator {
             System.out.println(modelNameUpperCamel + "重新定义 Mapper.java 生成成功");
 
             File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service.java");
+            System.out.println(file.getParentFile().exists());
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
-            cfg.getTemplate("service.ftl").process(data,
-                    new FileWriter(file));
-            System.out.println(modelNameUpperCamel + "Service.java 生成成功");
+                cfg.getTemplate("service.ftl").process(data,
+                        new FileWriter(file));
+                System.out.println(modelNameUpperCamel + "Service.java 生成成功");
+
+
 
             File file1 = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE_IMPL + modelNameUpperCamel + "ServiceImpl.java");
             if (!file1.getParentFile().exists()) {
                 file1.getParentFile().mkdirs();
             }
-            cfg.getTemplate("service-impl.ftl").process(data,
-                    new FileWriter(file1));
-            System.out.println(modelNameUpperCamel + "ServiceImpl.java 生成成功");
+                cfg.getTemplate("service-impl.ftl").process(data,
+                        new FileWriter(file1));
+                System.out.println(modelNameUpperCamel + "ServiceImpl.java 生成成功");
+
+
         } catch (Exception e) {
             throw new RuntimeException("生成Service失败", e);
         }
@@ -207,11 +212,15 @@ public class CodeGenerator {
             File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
-            }
-            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
-            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
+                cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
 
-            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
+                System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
+            }else{
+                System.out.println(modelNameUpperCamel + "Controller.java 已存在");
+            }
+
+            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+
         } catch (Exception e) {
             throw new RuntimeException("生成Controller失败", e);
         }

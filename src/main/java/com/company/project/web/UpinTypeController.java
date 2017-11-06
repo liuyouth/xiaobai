@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by GitHub Id = liuyouth on 2017/11/04.
+* Created by GitHub Id = liuyouth on 2017/11/05.
 */
 @RestController
 @RequestMapping("/upin/type")
