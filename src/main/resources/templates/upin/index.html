@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>小白杂货铺 | 优品 </title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element" style="    text-align: center;"> <span>
+                            <svg t="1509728315144" class="icon" style="width: 4em; height: 4em;vertical-align: middle;fill: #ff6767;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="998"><path d="M512.064 937.6c-197.184 0-357.568-148.032-357.568-329.856l0-430.528c0-49.408 40.192-89.6 89.664-89.6C244.352 87.552 246.4 87.488 249.024 87.36c9.792-0.576 18.944-1.024 23.104-1.024 203.584 0 369.216 165.696 369.216 369.344 0 102.464-40.96 197.696-115.328 268.096l-1.728 1.6c-6.848 6.528-17.6 6.528-24.576 0C425.344 655.872 382.656 557.504 382.656 455.68c0-70.336 19.904-138.752 57.408-197.824 5.312-8.448 16.448-10.88 24.832-5.568S475.776 268.736 470.464 277.12c-33.92 53.312-51.84 115.072-51.84 178.56 0 86.208 33.792 169.6 93.376 231.488 60.352-62.4 93.44-144 93.44-231.488 0-183.808-149.568-333.312-333.312-333.312-3.648 0-15.168 0.576-21.312 0.896C247.232 123.392 244.544 123.456 244.096 123.456c-29.632 0-53.76 24.128-53.76 53.76l0.064 430.528c0 162.112 144.256 294.016 321.6 294.016 177.344 0 321.6-131.904 321.6-294.016L833.6 177.216c0-29.632-24.064-53.76-53.696-53.76-0.512 0-3.072-0.064-6.656-0.256-6.208-0.32-17.792-0.896-21.312-0.896-54.208 0-105.856 12.544-153.536 37.376C589.568 164.288 578.752 160.832 574.208 152.064 569.6 143.296 573.056 132.416 581.824 127.872c52.16-27.136 110.976-41.472 170.176-41.472 4.096 0 13.312 0.448 23.104 1.024 2.624 0.128 4.544 0.192 5.248 0.256 49.088 0 89.28 40.192 89.28 89.6l0 430.528C869.632 789.632 709.248 937.6 512.064 937.6" p-id="999"></path></svg>
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">优品</strong>
+                             </span> <span class="text-muted text-xs block"> 尽享好物 ∞ <b
+                                    class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <!--<li><a href="profile.html">Profile</a></li>-->
+                            <!--<li><a href="contacts.html">Contacts</a></li>-->
+                            <!--<li><a href="mailbox.html">Mailbox</a></li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li><a href="login.html">Logout</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                      U 品
+                    </div>
+                </li>
+
+                <li class="active">
+                    <a href="/upin/admin"><i class="fa fa-diamond"></i> <span class="nav-label"> 优 品 汇 </span></a>
+
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+                    <form role="search" class="navbar-form-custom" action="#" >
+                        <div class="form-group">
+                            <input type="text" placeholder="" class="form-control"
+                                   name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message"> 欢迎来到小白杂货铺 </span>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-envelope"></i> <span class="label label-warning">0</span>
+                        </a>
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i> <span class="label label-primary">0</span>
+                        </a>
+
+                    </li>
+
+
+                    <!--<li>-->
+                    <!--<a href="login.html">-->
+                    <!--<i class="fa fa-sign-out"></i> Log out-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>优品汇聚 ，尽享好物 （ 好的资源共享出来，节省你我的购物时间 = 省钱 ）</h2>
+                <span style="color: #bdbdbd;font-weight: 300;">发布 or 寻找你喜欢的商品（衣物，数码，食物 包含但不限于以上几类）</span>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>Upin</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>精选商品</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="collapse-link " data-id="addUpinView">
+                                    <i class="fa fa-chevron-down">添加</i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="ibox float-e-margins " data-id="addUpinView">
+                                <div class="ibox-content" style="display: none;">
+                                    <form id="upinForm" class="form-horizontal">
+                                        <p> // 选择参数类型填写对应的参数值 </p>
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="title"  placeholder="title..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="name"  placeholder="发布者的名字..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="info"  placeholder="分享文案（包含网址）..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+                                            <div class="input-group left">
+
+                                                <input type="hidden" name="typeId" id="typeAutoHide"  placeholder="typeId..."
+                                                       class="form-control"/>
+                                                <input type="text" id="typeAuto" placeholder="种类...单选"
+                                                           class=" typeahead_3 form-control"/>
+                                                <span class="input-group-btn">
+                                                        <button type="button" id="addUpin"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                            </div>
+
+
+
+
+
+
+
+                                        <div class="clear"></div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="upinList" class="list">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="../js/plugins/dataTables/datatables.min.js"></script>
+
+<!--  Custom and plugin javascript  -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+<!-- Typehead -->
+<script src="../js/plugins/typehead/bootstrap3-typeahead.min.js"></script>
+<!-- Data picker -->
+<script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<!-- Clipboard -->
+<script src="../js/plugins/clipboard/clipboard.min.js"></script>
+
+
+<!-- Page-Level Scripts -->
+<script>
+    var upin;
+    $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+        loadData();
+
+        model = $('.dataTables-upin').DataTable({
+            select: true,
+            ajax: {
+                "url": '/upin/list'
+            },
+            columns: [
+
+
+                    {
+                        data: "id",
+                        "title": "ID",
+                        defaultContent: "无"
+                        , width: "50px"
+                    },
+
+                    {
+                        data: "title",
+                        "title": "标题",
+                    },
+
+                    {
+                        data: "img",
+                        "title": "图片",
+                    },
+
+                    {
+                        data: "name",
+                        "title": "发布者",
+                    },
+
+                    {
+                        data: "info",
+                        "title": "分享文案",
+                        width: "200px"
+                    },
+
+                    {
+                        data: "type.typeName",
+                        "title": "种类",
+
+                    },
+                {
+                    data: null,
+                    title: "操作",
+                    render: function (data, row) {
+                        return '<a target="_blank" href="'+data.url+'"><button class="btn btn-sm btn-white" href="">去购买</button></a>';
+                    }
+                },
+
+
+            ],
+            pageLength: 25,
+            responsive: true,
+        });
+
+        $('#typeAuto').typeahead({
+            source: function (query, process) {
+                return $.ajax({
+                    url: '/upin/type/list',
+                    type: 'get',
+                    data: {name: query, parameter: "4"},
+                    success: function (result) {
+                        var resultList = result.data.map(function (item) {
+                            var aItem = {id: item.upinTypeId, name: item.typeName};
+                            return JSON.stringify(aItem);
+                        });
+                        return process(resultList);
+                    }
+                });
+            }
+            , showHintOnFocus: true,
+            afterSelect: function (data) {
+                console.log(data)
+            }, updater: function (obj) {
+                var item = JSON.parse(obj);
+                $('#typeAutoHide').attr('value', item.id);
+                return item.name;
+            }, highlighter: function (obj) {
+                if (obj != "{}") {
+                    var item = JSON.parse(obj);
+                    var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+                    return item.name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                        return '<strong>' + match + '</strong>'
+                    })
+                }
+            }, items: "all",
+        });
+    });
+
+    $('#addUpin').on('click', function () {
+        console.log($('#upinForm').serialize());
+        $.ajax({
+            type: "post",
+            url: "/upin/add",
+            data: $('#upinForm').serialize(),
+            success: function (data) {
+                if (data.message == "SUCCESS") {
+                    model.ajax.reload();
+                }
+            },error: function (data) {
+                alert(dara.message);
+            }
+        });
+    });
+   function loadData(){
+       $.ajax({
+          type:"get",
+           url:"/upin/list",
+           success:function (data) {
+
+                   model.ajax.reload();
+                   var div = "";
+                   for (var i=0;i<data.data.length;i++)
+                   {
+                        dat = data.data[i];
+
+
+
+                       div+= '<div class="col-lg-3 col-xs-10 col-md-6 col-sm-9 box"><div class=" item "> <img style="width: 100%;" src="'+dat.img+'">  <div ' +
+                           'class="title"> <div>' +
+                           '<span>'+dat.title+'</span><a target="_blank" href="'+dat.url+'" ><button class="btn btn-w-m btn-info" style="float: right">去看看</button></a></div>' +
+                           '<div><span>分享者:'+dat.name+'</span> <span>点赞：99</span><span>已购买：99</span><svg t="1509820877846" class="icon" ' +
+                           'style="width: 2em; height: 2em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1058 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2435"><path d="M130.187 366.041c-2.281 0-4.751-0.38-7.03-1.329l-86.284-34.209c-9.692-3.803-14.636-14.823-10.644-24.706 3.803-9.692 14.823-14.636 24.706-10.644l86.284 34.209c9.692 3.803 14.636 14.823 10.644 24.706-3.041 7.412-10.073 11.974-17.675 11.974zM998.721 706.043c-2.281 0-4.561-0.38-6.652-1.329l-64.996-24.706c-9.883-3.803-14.823-14.636-11.024-24.518 3.803-9.883 14.636-14.823 24.518-11.024l64.996 24.706c9.883 3.803 14.823 14.636 11.024 24.518-3.041 7.601-10.261 12.353-17.866 12.353zM159.456 307.695c-3.23 0-6.463-0.762-9.314-2.47l-38.581-21.857c-9.121-5.132-12.353-16.724-7.222-25.846s16.724-12.353 25.846-7.222l38.581 21.857c9.121 5.132 12.353 16.724 7.222 25.846-3.42 6.273-9.883 9.692-16.533 9.692zM1012.023 801.258c-3.23 0-6.463-0.762-9.503-2.66l-106.428-61.766c-9.121-5.322-12.163-16.914-6.842-26.037s16.914-12.163 26.037-6.842l106.428 61.766c9.121 5.322 12.163 16.914 6.842 26.037-3.611 6.081-10.073 9.503-16.533 9.503zM780.923 482.543c-7.222 0-14.064-4.181-17.295-11.212-29.268-64.428-81.913-58.915-88.944-55.876-9.503 4.371-20.906 0.19-25.276-9.314-4.371-9.503-0.19-20.906 9.314-25.276 13.113-6.081 39.722-7.982 66.518 1.9 21.857 8.173 52.452 27.365 72.979 72.599 4.371 9.503 0 20.906-9.503 25.087-2.47 1.519-5.132 2.092-7.792 2.092zM543.359 897.424c-3.42 0-6.842-0.95-9.883-2.66-3.611-2.281-90.656-54.925-179.028-129.616-121.632-102.817-183.21-194.231-183.21-271.204 0-72.411 24.325-132.276 70.319-172.946 39.34-34.589 92.555-53.787 149.951-53.787 61.007 0 116.88 21.665 151.66 57.585 34.589-35.73 89.893-57.205 150.9-57.205 57.585 0 110.99 19.006 150.521 53.595 46.372 40.672 70.891 100.158 70.891 172.375 0 77.162-61.578 168.575-183.21 271.584-88.374 74.879-175.418 127.524-179.028 129.805-3.041 1.519-6.463 2.47-9.883 2.47zM391.508 305.035c-84.193 0-182.258 49.413-182.258 188.721 0 64.428 58.725 148.24 169.905 242.316 69.179 58.534 139.117 104.147 164.204 120.113 25.276-15.964 95.405-61.766 164.585-120.302 110.799-93.885 169.525-177.697 169.525-242.316 0-138.737-98.827-188.149-183.398-188.149-57.775 0-110.799 23.568-134.935 59.867-3.42 5.322-9.503 8.553-15.775 8.553 0 0 0 0 0 0-6.273 0-12.163-3.041-15.775-8.363-24.706-36.869-78.112-60.436-136.077-60.436z" fill="#ff6767" p-id="2436"></path></svg>' +
+                           '<button class="btn btn-w-m btn-info" style="float: right" data-clipboard-text="'+dat.info+'">' +
+                           '<i class="fa fa-copy" />淘口令</button></div></div></div></div>';
+                   }
+                   $("#upinList").append(div);
+                    initClip();
+           }
+       });
+   }
+
+   function initClip(){
+       var clipboard = new Clipboard('.btn');
+       clipboard.on('success', function(e) {
+           console.info('Action:', e.action);
+           console.info('Text:', e.text);
+           console.info('Trigger:', e.trigger);
+
+           e.clearSelection();
+       });
+
+       clipboard.on('error', function(e) {
+           console.error('Action:', e.action);
+           console.error('Trigger:', e.trigger);
+       });
+   }
+</script>
+
+</body>
+
+</html>

@@ -108,4 +108,5 @@ public class UpinController {
         long total = pageInfo.getTotal(); //获取总记录数
         return new TableResult().setCode(0).setCount(total).setData(list);
     }
+
 }

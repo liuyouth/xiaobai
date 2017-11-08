@@ -1,6 +1,7 @@
 package com.company.project.view;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -32,6 +33,9 @@ public class UpinViewController {
 
         return "admin/phones";
     }
-
+    @GetMapping("")
+    public String index(){
+        return "upin/index";
+    }
 
 }
