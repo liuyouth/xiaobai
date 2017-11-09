@@ -3,6 +3,8 @@ import com.company.project.core.Result;
 import com.company.project.core.TableResult;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.Upin;
+import com.company.project.net.NetClient;
+import com.company.project.net.TaobaoUtil;
 import com.company.project.service.UpinService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +28,8 @@ public class UpinController {
     @Resource
     private UpinService upinService;
 
+    private NetClient client = new NetClient();
+    private TaobaoUtil taobaoUtil = new TaobaoUtil();
     @PostMapping("/add")
     public Result add(Upin upin) {
         if (upin.getInfo() != null && !"".equals(upin.getInfo())) {
@@ -65,6 +70,14 @@ public class UpinController {
             if (upin.getTypeId()==null||0== upin.getTypeId()){
                 upin.setTypeId(1);
             }
+
+            try {
+                String d = client.get(upin.getUrl());
+                upin.setImg(taobaoUtil.getImg(d));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             upinService.save(upin);
             return ResultGenerator.genSuccessResult();
             //  return ResultGenerator.genFailResult("分享文案为空");

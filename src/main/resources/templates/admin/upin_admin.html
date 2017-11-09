@@ -100,7 +100,9 @@
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
                 <h2>优品汇聚 ，尽享好物 （ 好的资源共享出来，节省你我的购物时间 = 省钱 ）</h2>
-                <span style="color: #bdbdbd;font-weight: 300;">发布 or 寻找你喜欢的商品（衣物，数码，食物 包含但不限于以上几类）</span>
+                <span style="color: #bdbdbd;font-weight: 300;">发布 or 寻找你喜欢的商品（衣物，数码，食物 包含但不限于以上几类） </span>
+                <span style="color: #bdbdbd;font-weight: 300;">2017/11/9 请勿添加无用数据 维护良好的共享秩序 人人有责</span>
+                <span style="color: #bdbdbd;font-weight: 300;">2017/11/9 新添加数据可通过链接自动获取图片</span>
                 <ol class="breadcrumb">
                     <li>
                         <a href="#">Home</a>
@@ -278,6 +280,9 @@
                     {
                         data: "img",
                         "title": "图片",
+                        render:function (data) {
+                            return '<img src="'+data+'" style="width: 100%;">';
+                        }
                     },
 
                     {
