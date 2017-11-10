@@ -4,7 +4,7 @@ import com.company.project.core.Mapper;
 import java.util.List;
 
 /**
- * Created by GitHub Id = liuyouth on 2017/11/06.
+ * Created by GitHub Id = liuyouth on 2017/11/08.
  */
 public interface TodoMapper extends Mapper<Todo> {
      List<Todo> findAllRely();

@@ -4,7 +4,7 @@ import com.company.project.core.Service;
 import java.util.List;
 
 /**
- * Created by GitHub Id = liuyouth on 2017/11/06.
+ * Created by GitHub Id = liuyouth on 2017/11/08.
  */
 public interface TodoService extends Service<Todo> {
      List<Todo> findAllRely();

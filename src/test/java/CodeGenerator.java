@@ -142,9 +142,10 @@ public class CodeGenerator {
 
             if (!file2.getParentFile().exists()) {
                 file2.getParentFile().mkdirs();
-                cfg.getTemplate("admin.ftl").process(data,
-                        new FileWriter(file2));
+
             }
+            cfg.getTemplate("admin.ftl").process(data,
+                    new FileWriter(file2));
                 System.out.println(modelNameUpperCamel + "_admin.html 生成成功");
 
 
@@ -212,13 +213,11 @@ public class CodeGenerator {
             File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
-                cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
 
-                System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
-            }else{
-                System.out.println(modelNameUpperCamel + "Controller.java 已存在");
             }
+            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
 
+            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
             //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
 
         } catch (Exception e) {

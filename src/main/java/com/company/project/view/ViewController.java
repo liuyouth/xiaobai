@@ -17,7 +17,7 @@ public class ViewController {
     @RequestMapping("/phone")
     public String toPhone(){
 
-        return "phone";
+        return "todu";
     }
 
     @RequestMapping(value = "/{n}/{nn}/{nnn}", method = RequestMethod.GET)
@@ -29,6 +29,11 @@ public class ViewController {
 
         return model;
 
+    }
+    @RequestMapping("/{name}")
+    public String toPhone(@PathVariable("name") String name){
+        String r = "admin/"+name;
+        return r;
     }
 
 

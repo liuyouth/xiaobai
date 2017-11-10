@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uo控制台 | Todo </title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element" style="    text-align: center;"> <span>
+                            <svg t="1509728315144" class="icon" style="width: 4em; height: 4em;vertical-align: middle;fill: #ff6767;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="998"><path d="M512.064 937.6c-197.184 0-357.568-148.032-357.568-329.856l0-430.528c0-49.408 40.192-89.6 89.664-89.6C244.352 87.552 246.4 87.488 249.024 87.36c9.792-0.576 18.944-1.024 23.104-1.024 203.584 0 369.216 165.696 369.216 369.344 0 102.464-40.96 197.696-115.328 268.096l-1.728 1.6c-6.848 6.528-17.6 6.528-24.576 0C425.344 655.872 382.656 557.504 382.656 455.68c0-70.336 19.904-138.752 57.408-197.824 5.312-8.448 16.448-10.88 24.832-5.568S475.776 268.736 470.464 277.12c-33.92 53.312-51.84 115.072-51.84 178.56 0 86.208 33.792 169.6 93.376 231.488 60.352-62.4 93.44-144 93.44-231.488 0-183.808-149.568-333.312-333.312-333.312-3.648 0-15.168 0.576-21.312 0.896C247.232 123.392 244.544 123.456 244.096 123.456c-29.632 0-53.76 24.128-53.76 53.76l0.064 430.528c0 162.112 144.256 294.016 321.6 294.016 177.344 0 321.6-131.904 321.6-294.016L833.6 177.216c0-29.632-24.064-53.76-53.696-53.76-0.512 0-3.072-0.064-6.656-0.256-6.208-0.32-17.792-0.896-21.312-0.896-54.208 0-105.856 12.544-153.536 37.376C589.568 164.288 578.752 160.832 574.208 152.064 569.6 143.296 573.056 132.416 581.824 127.872c52.16-27.136 110.976-41.472 170.176-41.472 4.096 0 13.312 0.448 23.104 1.024 2.624 0.128 4.544 0.192 5.248 0.256 49.088 0 89.28 40.192 89.28 89.6l0 430.528C869.632 789.632 709.248 937.6 512.064 937.6" p-id="999"></path></svg>
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">Todo</strong>
+                             </span> <span class="text-muted text-xs block"> 尽享生活 ∞ <b
+                                    class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <!--<li><a href="profile.html">Profile</a></li>-->
+                            <!--<li><a href="contacts.html">Contacts</a></li>-->
+                            <!--<li><a href="mailbox.html">Mailbox</a></li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li><a href="login.html">Logout</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                    Todo
+                    </div>
+                </li>
+
+                <li class="active">
+                    <a href="/todo/admin"><i class="fa fa-diamond"></i> <span class="nav-label"> Todo </span></a>
+
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+                    <form role="search" class="navbar-form-custom" action="#" >
+                        <div class="form-group">
+                            <input type="text" placeholder="" class="form-control"
+                                   name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message"> 欢迎来到Uo管理系统 </span>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-envelope"></i> <span class="label label-warning">0</span>
+                        </a>
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i> <span class="label label-primary">0</span>
+                        </a>
+
+                    </li>
+
+
+                    <!--<li>-->
+                    <!--<a href="login.html">-->
+                    <!--<i class="fa fa-sign-out"></i> Log out-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Todo</h2>
+                <span style="color: #bdbdbd;font-weight: 300;">Todo 操作管理</span>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>Todo</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>列表</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="collapse-link " data-id="addTodoView">
+                                    <i class="fa fa-chevron-down">添加</i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="ibox float-e-margins " data-id="addTodoView">
+                                <div class="ibox-content" style="display: none;">
+                                    <form id="todoForm" class="form-horizontal">
+                                        <p> // 选择参数类型填写对应的参数值 </p>
+
+
+
+
+
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="todoTitle"  placeholder="todoTitle..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+
+
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="todoType"  placeholder="todoType..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+
+
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="createTime"  placeholder="createTime..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+
+
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="actionTime"  placeholder="actionTime..."
+                                                       class="form-control"/>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="toduInfo" placeholder="toduInfo..."
+                                                       class="form-control"/>
+                                                <span class="input-group-btn">
+                                                        <button type="button" id="addTodo"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                            </div>
+
+
+
+
+
+
+
+                                        <div class="clear"></div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-todo">
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="../js/plugins/dataTables/datatables.min.js"></script>
+
+<!--  Custom and plugin javascript  -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+<!-- Typehead -->
+<script src="../js/plugins/typehead/bootstrap3-typeahead.min.js"></script>
+<!-- Data picker -->
+<script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- Page-Level Scripts -->
+<script>
+    var todo;
+    $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+
+        model = $('.dataTables-todo').DataTable({
+            select: true,
+            ajax: {
+                "url": '/todo/list'
+            },
+            columns: [
+
+
+                    {
+                        data: "todoId",
+                        "title": "ID",
+                        defaultContent: "无"
+                        , width: "50px"
+                    },
+
+                    {
+                        data: "todoTitle",
+                        "title": "todoTitle",
+                    },
+
+                    {
+                        data: "todoType",
+                        "title": "todoType",
+                    },
+
+                    {
+                        data: "createTime",
+                        "title": "createTime",
+                    },
+
+                    {
+                        data: "actionTime",
+                        "title": "actionTime",
+                    },
+
+                    {
+                        data: "toduInfo",
+                        "title": "toduInfo",
+                    },
+                {
+                    data: null,
+                    title: "操作",
+                    render: function (data, row) {
+                        return data;
+                    }
+                },
+
+
+            ],
+            pageLength: 25,
+            responsive: true,
+        });
+
+
+    });
+
+    $('#addTodo').on('click', function () {
+        console.log($('#todoForm').serialize());
+        $.ajax({
+            type: "post",
+            url: "/todo/add",
+            data: $('#todoForm').serialize(),
+            success: function (data) {
+                if (data.message == "SUCCESS") {
+                    model.ajax.reload();
+                }
+            }
+        });
+    });
+
+
+</script>
+
+</body>
+
+</html>
