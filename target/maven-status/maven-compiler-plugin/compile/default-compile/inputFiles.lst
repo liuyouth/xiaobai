@@ -13,6 +13,7 @@
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/web/PhoneColorController.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/PhoneColor.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/PhoneLogMapper.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/net/NetClient.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/ParameterMapper.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/UpinMapper.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/Parameter.java
@@ -23,6 +24,7 @@
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/web/ParameterController.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/ConfigService.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/PhoneModelMapper.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/TodoMapper.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/PhoneOfferServiceImpl.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/Phone.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/core/ResultCode.java
@@ -38,10 +40,13 @@
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/ModelServiceImpl.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/configurer/WebMvcConfigurer.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/core/Service.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/TodoServiceImpl.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/PhoneOfferMapper.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/core/Result.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/BusinessMapper.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/web/TodoController.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/PhoneOfferService.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/net/ExtraData.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/ParameterServiceImpl.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/web/UpinController.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/PhoneColorServiceImpl.java
@@ -55,9 +60,12 @@
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/impl/PhoneLogServiceImpl.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/PhoneLogService.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/Application.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/Todo.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/net/TaobaoUtil.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/dao/ConfigMapper.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/model/Model.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/UpinService.java
+/Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/TodoService.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/PhoneService.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/utils/DateUtils.java
 /Users/MacBook/Github/xiaobai/src/main/java/com/company/project/service/ParameterService.java

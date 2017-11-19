@@ -1,5 +1,6 @@
 package com.company.project.model;
 
+import java.util.Date;
 import javax.persistence.*;
 
 public class Upin {
@@ -19,8 +20,23 @@ public class Upin {
     private Integer typeId;
 
     private String url;
+
+    @Column(name = "leading_words")
+    private String leadingWords;
+
+    @Column(name = "create_time")
+    private Date createTime;
+
+    @Column(name = "praise_num")
+    private Integer praiseNum;
+
+    @Column(name = "ip_address")
+    private String ipAddress;
+
     @Transient
     private UpinType type;
+    @Transient
+    private String fuligou;
 
     public UpinType getType() {
         return type;
@@ -28,6 +44,14 @@ public class Upin {
 
     public void setType(UpinType type) {
         this.type = type;
+    }
+
+    public String getFuligou() {
+        return fuligou;
+    }
+
+    public void setFuligou(String fuligou) {
+        this.fuligou = fuligou;
     }
 
     /**
@@ -126,5 +150,61 @@ public class Upin {
      */
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    /**
+     * @return leading_words
+     */
+    public String getLeadingWords() {
+        return leadingWords;
+    }
+
+    /**
+     * @param leadingWords
+     */
+    public void setLeadingWords(String leadingWords) {
+        this.leadingWords = leadingWords;
+    }
+
+    /**
+     * @return create_time
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * @param createTime
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * @return praise_num
+     */
+    public Integer getPraiseNum() {
+        return praiseNum;
+    }
+
+    /**
+     * @param praiseNum
+     */
+    public void setPraiseNum(Integer praiseNum) {
+        this.praiseNum = praiseNum;
+    }
+
+    /**
+     * @return ip_address
+     */
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    /**
+     * @param ipAddress
+     */
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

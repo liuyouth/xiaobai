@@ -12,6 +12,10 @@
     <result column="info" jdbcType="VARCHAR" property="info" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="leading_words" jdbcType="VARCHAR" property="leadingWords" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="praise_num" jdbcType="INTEGER" property="praiseNum" />
+    <result column="ip_address" jdbcType="VARCHAR" property="ipAddress" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="RulyResultMap" type="com.company.project.model.Upin">
     <association column="type_id" javaType="com.company.project.model.UpinType" property="type">

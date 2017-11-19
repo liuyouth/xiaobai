@@ -31,4 +31,13 @@ public class ExtraData {
     public void setPriceL(String priceL) {
         this.priceL = priceL;
     }
+
+    @Override
+    public String toString() {
+        return "ExtraData{" +
+                "title='" + title + '\'' +
+                ", pic='" + pic + '\'' +
+                ", priceL='" + priceL + '\'' +
+                '}';
+    }
 }

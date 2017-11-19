@@ -61,6 +61,15 @@ h5 {
 .list{
     overflow: hidden;
 }
+.item:hover{
+    box-shadow: 0px 1px 12px 2px #b9b9b9;
+}
+.item img {
+    min-width: 291px;
+    min-height:291px;
+    max-height: 375.75px;
+
+}
 .item {
     margin-left: 5px;
     margin-bottom: 5px;
@@ -68,18 +77,21 @@ h5 {
     margin-top: 5px;
     border-radius: 5px;
     overflow: hidden;
-    background-color: #8EC5FC;
-    background-image: -webkit-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    background-image: -moz-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    background-image: -o-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    color: #333333;
+    background-color: #fff;
+    /*background-image: -webkit-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);*/
+    /*background-image: -moz-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);*/
+    /*background-image: -o-linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);*/
+    /*background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);*/
+    box-shadow: 0px 1px 6px 1px #E0E0E0;
+    transition: all 0.4s ease;
 }
 .item span{
     margin-left: 5px;
 }
 .item .title {
 
-    color: #fff;
+    color: #333;
     font-size: 14px;
     font-weight: 300;
     padding: 5px;
