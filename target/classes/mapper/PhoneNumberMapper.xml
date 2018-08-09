@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PhoneNumberMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.PhoneNumber">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="phone_number_id" jdbcType="INTEGER" property="phoneNumberId" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="phone_number_operator" jdbcType="VARCHAR" property="phoneNumberOperator" />
+    <result column="phone_number_monthly" jdbcType="INTEGER" property="phoneNumberMonthly" />
+    <result column="phone_number_balance" jdbcType="DOUBLE" property="phoneNumberBalance" />
+    <result column="phone_number_name" jdbcType="VARCHAR" property="phoneNumberName" />
+    <result column="contract_period" jdbcType="VARCHAR" property="contractPeriod" />
+    <result column="phone_number_address" jdbcType="VARCHAR" property="phoneNumberAddress" />
+    <result column="phone_authentication_card_id" jdbcType="VARCHAR" property="phoneAuthenticationCardId" />
+    <result column="phone_authentication_name" jdbcType="VARCHAR" property="phoneAuthenticationName" />
+    <result column="contract_amount" jdbcType="DOUBLE" property="contractAmount" />
+    <result column="person_id" jdbcType="INTEGER" property="personId" />
+  </resultMap>
+</mapper>

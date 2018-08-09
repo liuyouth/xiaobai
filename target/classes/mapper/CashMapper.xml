@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.CashMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Cash">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cash_id" jdbcType="INTEGER" property="cashId" />
+    <result column="money" jdbcType="INTEGER" property="money" />
+    <result column="cash_type" jdbcType="INTEGER" property="cashType" />
+    <result column="cash_state" jdbcType="INTEGER" property="cashState" />
+    <result column="for_person_id" jdbcType="INTEGER" property="forPersonId" />
+  </resultMap>
+</mapper>

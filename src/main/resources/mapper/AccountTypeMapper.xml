@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.AccountTypeMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.AccountType">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account_type_id" jdbcType="INTEGER" property="accountTypeId" />
+    <result column="account_type_name" jdbcType="VARCHAR" property="accountTypeName" />
+    <result column="account_type_home" jdbcType="VARCHAR" property="accountTypeHome" />
+  </resultMap>
+</mapper>

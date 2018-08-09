@@ -11,29 +11,30 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by MacBook on 2017/8/22.
  */
 @Controller
-@RequestMapping("/v")
 public class ViewController {
 
-    @RequestMapping("/phone")
-    public String toPhone(){
 
-        return "todu";
-    }
-
-    @RequestMapping(value = "/{n}/{nn}/{nnn}", method = RequestMethod.GET)
-    public ModelAndView welcome(@PathVariable("n") String n,@PathVariable("nn") String nn,@PathVariable("nnn") String nnn) {
-        System.out.println(" 跳转至  "+n+"/"+nn+"/"+nnn);
-        ModelAndView model = new ModelAndView();
-        model.setViewName(n+"/"+nn+"/"+nnn);
-       // model.addObject("name", name);
-
-        return model;
-
-    }
-    @RequestMapping("/{name}")
+    @RequestMapping("/admin/{name}")
     public String toPhone(@PathVariable("name") String name){
         String r = "admin/"+name;
         return r;
+    }
+
+    @RequestMapping("/upin")
+    public String toUpin(){
+        return "upin/index";
+    }
+    @RequestMapping("/cash")
+    public String toCash(){
+        return "cash/index";
+    }
+    @RequestMapping("/person")
+    public String toPerson(){
+        return "person/index";
+    }
+    @RequestMapping("/")
+    public String toIndex(){
+        return "index";
     }
 
 

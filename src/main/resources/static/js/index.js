@@ -11,24 +11,24 @@ var freeState = 0;
 
 //涉及到 具体不同的业务需要 折线图的变换结构也会有所不同。会根据数据进行绘制
 $(function(){
-    canvas = document.getElementById('ecg1');
-    ctx = canvas.getContext('2d');
-    // //设置对象起始点和终点
-    // ctx.moveTo(10,10);
-    // ctx.lineTo(20,20);
-    // //设置样式
-    // ctx.lineTo(10,25);
-    // ctx.lineWidth = 2;
-    // ctx.strokeStyle = "#F5270B";
-    // var color = ctx.createLinearGradient(512, 460, 512, 260);
-    // color.addColorStop(0, '#499989');
-    // color.addColorStop(1, '#176785');
-    // ctx.strokeStyle = color;
-    // ctx.lineTo(50,65);
-    // //绘制
-    // ctx.stroke();
-    timer();
-    loading();
+    // canvas = document.getElementById('ecg1');
+    // ctx = canvas.getContext('2d');
+    // // //设置对象起始点和终点
+    // // ctx.moveTo(10,10);
+    // // ctx.lineTo(20,20);
+    // // //设置样式
+    // // ctx.lineTo(10,25);
+    // // ctx.lineWidth = 2;
+    // // ctx.strokeStyle = "#F5270B";
+    // // var color = ctx.createLinearGradient(512, 460, 512, 260);
+    // // color.addColorStop(0, '#499989');
+    // // color.addColorStop(1, '#176785');
+    // // ctx.strokeStyle = color;
+    // // ctx.lineTo(50,65);
+    // // //绘制
+    // // ctx.stroke();
+    // timer();
+    // loading();
 });
 function netText() {
     var clearAdd;

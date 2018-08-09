@@ -121,4 +121,13 @@ public class UpinController {
         long total = pageInfo.getTotal(); //获取总记录数
         return new TableResult().setCode(0).setCount(total).setData(list);
     }
+
+
+    @PostMapping("/praise")
+    public Result praise(@RequestParam Integer id) {
+        Upin upin = upinService.findById(id);
+        upin.setPraiseNum(upin.getPraiseNum()+1);
+        upinService.update(upin);
+        return ResultGenerator.genSuccessResult(upin);
+    }
 }

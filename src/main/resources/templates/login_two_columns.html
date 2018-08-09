@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iolll 新时代的个人助理 | Login </title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="loginColumns animated fadeInDown">
+    <div class="row">
+
+        <div class="col-md-6">
+            <h2 class="font-bold">Welcome to iolll</h2>
+
+            <p>
+                通往自由的路上总是充满孤独！
+            </p>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s.
+            </p>
+
+            <p>
+                When an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+
+            <p>
+                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged.
+                </small>
+            </p>
+
+        </div>
+        <div class="col-md-6">
+            <div class="ibox-content">
+                <form id="loginFrom" class="m-t" role="form" action="index.html" onsubmit="return loginFrom();">
+                    <div class="form-group">
+                        <input type="text" name="userName" class="form-control" placeholder="Username" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="passWord" class="form-control" placeholder="Password" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+                    <!--<a href="#">-->
+                    <!--<small>Forgot password?</small>-->
+                    <!--</a>-->
+
+                    <!--<p class="text-muted text-center">-->
+                    <!--<small>Do not have an account?</small>-->
+                    <!--</p>-->
+                    <!--<a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>-->
+                </form>
+                <!--<p class="m-t">-->
+                <!--<small></small>-->
+                <!--</p>-->
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
+            Copyright iolll.com
+        </div>
+        <div class="col-md-6 text-right">
+            <small>© 2017-2018</small>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<!-- Toastr script -->
+<script src="js/plugins/toastr/toastr.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+    var baseurl = 'http://192.168.1.110:8080/';
+    var loginStatus = false;
+    $(function () {
+
+        toastr.options.onHidden = function () {
+            if (loginStatus)
+                goTo()
+        }
+        if (isLogin()){
+            loginStatus = true;
+                toastr.success('已经登陆正在跳转至首页！')
+
+        }
+    })
+    function loginFrom() {
+        var datastr = getFormData($('#loginFrom'));
+        // var datastr = JSON.stringify(getFormData($('#loginFrom')));
+        console.log(datastr);
+        $.ajax({
+            type: "post",
+            // contentType: "application/json", //发送至服务器的类型
+            contentType:"application/x-www-form-urlencoded",
+            // dataType: "application/json", //预期服务器返回类型
+            url: baseurl+"user/login/",
+            // headers: {
+            //     "authorization": "32f663ff9f9242828ffce93c2a412626_1"
+            // },
+            // data:datastr,
+            data: {"userName":datastr.userName,"passWord":datastr.passWord},
+            success: function (data) {
+                if (data.code === 200) {
+                    loginStatus = true;
+                    toastr.options.timeOut = 1000;
+                    toastr.success('登陆成功, 正在跳转至首页！')
+                    setToken(data.data.token+"_"+data.data.userId);
+
+                }else{
+                    toastr.error(data.msg)
+                }
+            }
+            , error: function (data) {
+                toastr.error(data)
+            }
+        });
+        return false;
+    }
+
+
+    function getFormData($form) {
+        var unindexed_array = $form.serializeArray();
+        var indexed_array = {};
+
+        $.map(unindexed_array, function (n, i) {
+            indexed_array[n['name']] = n['value'];
+        });
+
+        return indexed_array;
+    }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account_number_id" jdbcType="INTEGER" property="accountNumberId" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_psw" jdbcType="VARCHAR" property="accountPsw" />
+    <result column="account_phone_id" jdbcType="INTEGER" property="accountPhoneId" />
+    <result column="account_answer" jdbcType="VARCHAR" property="accountAnswer" />
+    <result column="account_question" jdbcType="VARCHAR" property="accountQuestion" />
+    <result column="account_email" jdbcType="VARCHAR" property="accountEmail" />
+    <result column="account_type_id" jdbcType="INTEGER" property="accountTypeId" />
+  </resultMap>
+
+  <resultMap extends="BaseResultMap" id="AllResultMap" type="com.company.project.model.Account">
+    <association column="account_phone_id" javaType="com.company.project.model.PhoneNumber" property="accountPhone">
+      <id column="phone_number_id" jdbcType="INTEGER" property="phoneNumberId" />
+      <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+      <result column="phone_number_operator" jdbcType="VARCHAR" property="phoneNumberOperator" />
+      <result column="phone_number_monthly" jdbcType="INTEGER" property="phoneNumberMonthly" />
+      <result column="phone_number_balance" jdbcType="DOUBLE" property="phoneNumberBalance" />
+      <result column="phone_number_name" jdbcType="VARCHAR" property="phoneNumberName" />
+      <result column="contract_period" jdbcType="VARCHAR" property="contractPeriod" />
+      <result column="phone_number_address" jdbcType="VARCHAR" property="phoneNumberAddress" />
+      <result column="phone_authentication_card_id" jdbcType="VARCHAR" property="phoneAuthenticationCardId" />
+      <result column="phone_authentication_name" jdbcType="VARCHAR" property="phoneAuthenticationName" />
+      <result column="contract_amount" jdbcType="DOUBLE" property="contractAmount" />
+      <result column="person_id" jdbcType="INTEGER" property="personId" />
+    </association>
+    <association property="accountType" column="account_type_id" javaType="com.company.project.model.AccountType">
+      <id column="account_type_id" jdbcType="INTEGER" property="accountTypeId" />
+      <result column="account_type_name" jdbcType="VARCHAR" property="accountTypeName" />
+      <result column="account_type_home" jdbcType="VARCHAR" property="accountTypeHome" />
+    </association>
+  </resultMap>
+  <select id="findAllRely" resultMap="AllResultMap">
+    SELECT
+    *
+    FROM
+    account a
+    LEFT JOIN phone_number p ON a.account_phone_id = p.phone_number_id
+    LEFT JOIN account_type t ON a.account_type_id = t.account_type_id
+
+  </select>
+</mapper>

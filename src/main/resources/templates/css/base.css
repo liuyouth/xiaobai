@@ -1,0 +1,70 @@
+/**
+  基础样式
+ */
+*{
+    margin: 0;
+    padding:0;
+}
+input{
+    border: 0;
+    /*background-color: rgba(206, 84, 84, 0.44);*/
+   /* border: 1px solid rgba(205, 68, 68, 0.64);*/
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+    outline: none;
+    color: #ff6767;
+    font-size: 18px;
+    transition: all ease .6s;
+}
+input:focus{
+    font-size: 40px;
+    color: #fff;
+    background-color: rgba(31, 15, 15, 0.89);
+    border: 1px solid rgba(231, 87, 87, 0.91);
+}
+
+form input{
+    width: 70%;
+    height: 10%;
+}
+
+.form-box{
+    text-align: center;
+}
+
+
+body{
+    /* 使之可以滚动 */
+         overflow-y: scroll;
+          /* 增加该属性，可以增加弹性，是滑动更加顺畅 */
+                    -webkit-overflow-scrolling: touch;
+}
+button{
+    border: 0;
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all ease .15s;
+    background: #fff;
+    color: #7f7e7f;
+    border: 1px solid #7f7e7f;
+}
+.post{
+    color: #ff6767;
+    border: 1px solid #ff6767;
+}
+.post:hover{
+    background: rgba(255, 103, 103, 0.26);
+}
+.post:active{
+    color: #fff;
+    background: #ff6767;
+}
+
+
+.clear{
+    clear: both;
+}
+

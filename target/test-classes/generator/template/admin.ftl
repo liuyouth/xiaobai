@@ -28,7 +28,11 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element" style="    text-align: center;"> <span>
-                            <svg t="1509728315144" class="icon" style="width: 4em; height: 4em;vertical-align: middle;fill: #ff6767;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="998"><path d="M512.064 937.6c-197.184 0-357.568-148.032-357.568-329.856l0-430.528c0-49.408 40.192-89.6 89.664-89.6C244.352 87.552 246.4 87.488 249.024 87.36c9.792-0.576 18.944-1.024 23.104-1.024 203.584 0 369.216 165.696 369.216 369.344 0 102.464-40.96 197.696-115.328 268.096l-1.728 1.6c-6.848 6.528-17.6 6.528-24.576 0C425.344 655.872 382.656 557.504 382.656 455.68c0-70.336 19.904-138.752 57.408-197.824 5.312-8.448 16.448-10.88 24.832-5.568S475.776 268.736 470.464 277.12c-33.92 53.312-51.84 115.072-51.84 178.56 0 86.208 33.792 169.6 93.376 231.488 60.352-62.4 93.44-144 93.44-231.488 0-183.808-149.568-333.312-333.312-333.312-3.648 0-15.168 0.576-21.312 0.896C247.232 123.392 244.544 123.456 244.096 123.456c-29.632 0-53.76 24.128-53.76 53.76l0.064 430.528c0 162.112 144.256 294.016 321.6 294.016 177.344 0 321.6-131.904 321.6-294.016L833.6 177.216c0-29.632-24.064-53.76-53.696-53.76-0.512 0-3.072-0.064-6.656-0.256-6.208-0.32-17.792-0.896-21.312-0.896-54.208 0-105.856 12.544-153.536 37.376C589.568 164.288 578.752 160.832 574.208 152.064 569.6 143.296 573.056 132.416 581.824 127.872c52.16-27.136 110.976-41.472 170.176-41.472 4.096 0 13.312 0.448 23.104 1.024 2.624 0.128 4.544 0.192 5.248 0.256 49.088 0 89.28 40.192 89.28 89.6l0 430.528C869.632 789.632 709.248 937.6 512.064 937.6" p-id="999"></path></svg>
+                            <svg t="1509728315144" class="icon"
+                                 style="width: 4em; height: 4em;vertical-align: middle;fill: #ff6767;overflow: hidden;"
+                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="998"><path
+                                    d="M512.064 937.6c-197.184 0-357.568-148.032-357.568-329.856l0-430.528c0-49.408 40.192-89.6 89.664-89.6C244.352 87.552 246.4 87.488 249.024 87.36c9.792-0.576 18.944-1.024 23.104-1.024 203.584 0 369.216 165.696 369.216 369.344 0 102.464-40.96 197.696-115.328 268.096l-1.728 1.6c-6.848 6.528-17.6 6.528-24.576 0C425.344 655.872 382.656 557.504 382.656 455.68c0-70.336 19.904-138.752 57.408-197.824 5.312-8.448 16.448-10.88 24.832-5.568S475.776 268.736 470.464 277.12c-33.92 53.312-51.84 115.072-51.84 178.56 0 86.208 33.792 169.6 93.376 231.488 60.352-62.4 93.44-144 93.44-231.488 0-183.808-149.568-333.312-333.312-333.312-3.648 0-15.168 0.576-21.312 0.896C247.232 123.392 244.544 123.456 244.096 123.456c-29.632 0-53.76 24.128-53.76 53.76l0.064 430.528c0 162.112 144.256 294.016 321.6 294.016 177.344 0 321.6-131.904 321.6-294.016L833.6 177.216c0-29.632-24.064-53.76-53.696-53.76-0.512 0-3.072-0.064-6.656-0.256-6.208-0.32-17.792-0.896-21.312-0.896-54.208 0-105.856 12.544-153.536 37.376C589.568 164.288 578.752 160.832 574.208 152.064 569.6 143.296 573.056 132.416 581.824 127.872c52.16-27.136 110.976-41.472 170.176-41.472 4.096 0 13.312 0.448 23.104 1.024 2.624 0.128 4.544 0.192 5.248 0.256 49.088 0 89.28 40.192 89.28 89.6l0 430.528C869.632 789.632 709.248 937.6 512.064 937.6"
+                                    p-id="999"></path></svg>
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong
@@ -49,7 +53,8 @@
                 </li>
 
                 <li class="active">
-                    <a href="/${modelNameLowerCamel}/admin"><i class="fa fa-diamond"></i> <span class="nav-label"> ${modelNameUpperCamel} </span></a>
+                    <a href="/${modelNameLowerCamel}/admin"><i class="fa fa-diamond"></i> <span
+                            class="nav-label"> ${modelNameUpperCamel} </span></a>
 
                 </li>
             </ul>
@@ -63,7 +68,7 @@
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
                     </a>
-                    <form role="search" class="navbar-form-custom" action="#" >
+                    <form role="search" class="navbar-form-custom" action="#">
                         <div class="form-group">
                             <input type="text" placeholder="" class="form-control"
                                    name="top-search" id="top-search">
@@ -124,8 +129,8 @@
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
-                                <a class="collapse-link " data-id="add${modelNameUpperCamel}View">
-                                    <i class="fa fa-chevron-down">添加</i>
+                                <a class="collapse-link">
+                                <i class="fa fa-plus-square-o" onclick="openModal()" data-toggle="modal" data-target="#myModal"></i>
                                 </a>
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i class="fa fa-wrench"></i>
@@ -145,43 +150,7 @@
 
                             <div class="ibox float-e-margins " data-id="add${modelNameUpperCamel}View">
                                 <div class="ibox-content" style="display: none;">
-                                    <form id="${modelNameLowerCamel}Form" class="form-horizontal">
-                                        <p> // 选择参数类型填写对应的参数值 </p>
-                                    <#list 0..(data!?size-1) as i>
-                                        <#switch i>
-                                            <#case 0>
 
-                                                <#break>
-                                            <#case (data!?size-1)>
-                                            <div class="input-group left">
-
-                                                <input type="text" name="${data[i].name!}" placeholder="${data[i].name!}..."
-                                                       class="form-control"/>
-                                                <span class="input-group-btn">
-                                                        <button type="button" id="add${modelNameUpperCamel}"
-                                                                class="btn btn-primary">添加！</button>
-                                                    </span>
-                                            </div>
-                                                <#break>
-                                            <#default>
-
-                                            <div class="input-group left">
-
-                                                <input type="text" name="${data[i].name!}"  placeholder="${data[i].name!}..."
-                                                       class="form-control"/>
-                                            </div>
-                                        </#switch>
-
-
-
-
-
-
-                                    </#list>
-
-                                        <div class="clear"></div>
-
-                                    </form>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -206,6 +175,68 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <i id="urlIcon" class="fa fa-laptop modal-icon"></i>
+                <img id="urlIconImg"  style="width: 84px ;display: none"/>
+                <h4 class="modal-title" id="modalTitle"></h4>
+                <small class="font-bold"></small>
+            </div>
+            <div class="modal-body">
+                <form id="${modelNameLowerCamel}Form" class="form-horizontal">
+                    <p> // 选择参数类型填写对应的参数值 </p>
+                                    <#list 0..(data!?size-1) as i>
+                                        <#switch i>
+                                            <#case 0>
+
+                                                <#break>
+                                            <#case (data!?size-1)>
+
+                                            <div class="input-group left">
+
+                                                <input type="text" name="${data[i].name!}"
+                                                       placeholder="${data[i].name!}..."
+                                                       class="form-control"/>
+                                                <span class="input-group-btn">
+                                                        <button type="button" id="add${modelNameUpperCamel}"
+                                                                class="btn btn-primary">添加！</button>
+                                                    </span>
+                                            </div>
+                                                <#break>
+                                            <#default>
+
+                                             <div class="form-group row"><label
+                                                     class="col-lg-2 col-form-label">${data[i].name!}</label>
+
+                                                 <div class="col-lg-10">
+                                                     <input type="text" placeholder="${data[i].name!}" name="${data[i].name!}"
+                                                            class="form-control">
+                                                 </div>
+                                             </div>
+                                        </#switch>
+
+
+
+
+
+
+                                    </#list>
+
+                    <div class="clear"></div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="$('${modelNameLowerCamel}Form').submit();" >Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -267,7 +298,7 @@
                     data: null,
                     title: "操作",
                     render: function (data, row) {
-                        return data;
+                        return "<button class=\"btn btn-info btn-block \" type=\"button\" onclick='openModal("+JSON.stringify(data)+")' data-dataid='"+data.id+"' data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-edit\"></i></button>";
                     }
                 },
 
@@ -279,6 +310,14 @@
 
 
     });
+
+    function openModal(data) {
+        if (data!==null && data!== undefined) {
+            $("#modalTitle").text("修改 ：" + data.name);
+            util.fillFormData($("#${modelNameLowerCamel}Form"), data);
+        }else
+            $("#modalTitle").text("添加");
+    }
 
     $('#add${modelNameUpperCamel}').on('click', function () {
         console.log($('#${modelNameLowerCamel}Form').serialize());

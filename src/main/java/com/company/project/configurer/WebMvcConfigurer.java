@@ -51,8 +51,10 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         FastJsonHttpMessageConverter4 converter = new FastJsonHttpMessageConverter4();
         FastJsonConfig config = new FastJsonConfig();
         config.setSerializerFeatures(SerializerFeature.WriteMapNullValue,//保留空的字段
+                SerializerFeature.DisableCircularReferenceDetect,
                 SerializerFeature.WriteNullStringAsEmpty,//String null -> ""
                 SerializerFeature.WriteNullNumberAsZero);//Number null -> 0
+
         converter.setFastJsonConfig(config);
         converter.setDefaultCharset(Charset.forName("UTF-8"));
         converters.add(converter);
@@ -121,6 +123,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                         responseResult(response, result);
                     } else {//普通视图
                         if (response.getStatus() == 404) {
+
                             mv.setViewName("error/404");
                         } else {
                             mv.setViewName("error/500");
@@ -175,6 +178,8 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         response.setStatus(200);
         try {
             response.getWriter().write(JSON.toJSONString(result));
+
+//            response.getWriter().write(JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd HH:mm:ss",SerializerFeature.DisableCircularReferenceDetect));
         } catch (IOException ex) {
             logger.error(ex.getMessage());
         }

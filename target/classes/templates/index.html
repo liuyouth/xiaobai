@@ -7,21 +7,116 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta content="email=no" name="format-detection">
-    <title>标题</title>
-    <link rel="stylesheet" href="index.css">
+    <title>私人助理</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <style>
-        #ecg1{
-            width: 200px;
-            height: 100px;
-        }
+
+
     </style>
 </head>
-<script src="../js/jQuery.js" ></script>
-<script src="../js/base.js" ></script>
-<script src="../js/index.js" ></script>
+<script src="../js/jQuery.js"></script>
+<script src="js/plugins/toastr/toastr.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/index.js"></script>
 <body>
-<canvas style="border: 1px solid #808080;display: block;margin: 100px auto; " id="ecg1">浏览器暂不支持h5的canvas元素</canvas>
-<button onclick="netText()">NETWorking</button>
+<div style="">
+
+    <img style="width: 100%;-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;    position: absolute;z-index: -1;
+        background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),
+        linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);cursor: zoom-in;" src="img/bg/home1.jpg" width="1669" height="985">
+
+<!--<canvas style="border: 1px solid #808080;display: block;" id="ecg1">浏览器暂不支持h5的canvas元素</canvas>-->
+<!--<button onclick="netText()">NETWorking</button>-->
+<div style="padding: 20px" >
+<div> <button onclick="logOut()">退出</button> </div>
+    <div>
+        财务管理
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <a href="/cash">
+                <div class="card project off">
+                    礼金管理
+                </div>
+
+            </a>
+        </div>
+        <div class="col-lg-2">
+            <a href="/person">
+                <div class="card project">
+                    用户管理
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-2">
+            <a href="/upin">
+                <div class="card project">
+                    Upin购物
+                </div>
+            </a>
+        </div>
+    </div>
+    <div>
+        账号管理
+    </div>
+    <div class="row">
+
+            <a href="/admin/phoneNumber_admin">
+                <div class="card project off">
+                   手机号管理
+                </div>
+
+            </a>
+
+
+            <a href="/person">
+                <div class="card project">
+                    邮箱管理
+                </div>
+            </a>
+
+
+            <a href="/admin/account_admin">
+                <div class="card project">
+                    账号管理
+                </div>
+            </a>
+
+    </div>
+    <div>
+        网址收藏
+    </div>
+    <div class="row">
+
+        <a href="/page/urlrecprd">
+            <div class="card project ">
+                网址收藏
+            </div>
+
+        </a>
+
+
+        <a href="/person">
+            <div class="card project off">
+                分类管理
+            </div>
+        </a>
+
+
+
+    </div>
+</div>
+</div>
 </body>
 
 </html>

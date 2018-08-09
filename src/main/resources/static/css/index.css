@@ -1,6 +1,9 @@
 /**
   基础样式
  */
+body{
+    background-color: #fff;
+}
 #input{
     margin: 0;
     width: 100%;
@@ -10,4 +13,26 @@
     background-color: rgba(31, 15, 15, 0.89);
     border: 1px solid rgba(231, 87, 87, 0.91);
 }
+.a{
+    color: #fff;
+}
+.card{
+    float: left;
 
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 0px 1px 5px 0px #333;
+}
+.off{
+    background: rgba(255, 255, 255, 0.5);
+}
+.project{
+    min-width: 100px;
+    height: 100px;
+}
+#ecg1{
+    width: 200px;
+    height: 100px;
+}

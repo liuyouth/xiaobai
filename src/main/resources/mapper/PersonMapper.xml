@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PersonMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Person">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="person_id" jdbcType="INTEGER" property="personId" />
+    <result column="person_name" jdbcType="VARCHAR" property="personName" />
+    <result column="person_card_id" jdbcType="VARCHAR" property="personCardId" />
+    <result column="person_photo" jdbcType="VARCHAR" property="personPhoto" />
+    <result column="person_address" jdbcType="VARCHAR" property="personAddress" />
+  </resultMap>
+</mapper>

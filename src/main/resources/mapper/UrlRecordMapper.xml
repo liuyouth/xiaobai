@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.UrlRecordMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.UrlRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="fork_num" jdbcType="INTEGER" property="forkNum" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="open_all" jdbcType="BIT" property="openAll" />
+    <result column="space" jdbcType="VARCHAR" property="space" />
+    <result column="star_num" jdbcType="INTEGER" property="starNum" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="use_num" jdbcType="INTEGER" property="useNum" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="is_open_all" jdbcType="BIT" property="isOpenAll" />
+  </resultMap>
+</mapper>
