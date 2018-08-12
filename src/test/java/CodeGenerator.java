@@ -40,18 +40,79 @@ public class CodeGenerator {
 
     private static final String AUTHOR = "GitHub Id = liuyouth";//@author
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
-
+    private static final String APIURL = "http://192.168.1.7:8080/";
     public static void main(String[] args) {
-       genCode("url_record");
+       genCode("home_address");
     }
 
     public static void genCode(String... tableNames) {
         for (String tableName : tableNames) {
             //根据需求生成，不需要的注掉，模板有问题的话可以自己修改。
             getHTML(tableName);
+            getController(tableName);  // kotlin
+            getByFTL(tableName,"KotlinRepository","Repository");
 //            genModelAndMapper(tableName);
 //            genService(tableName);
 //            genController(tableName);
+        }
+    }
+
+    private static void getController(String tableName) {
+        try {
+            freemarker.template.Configuration cfg = getConfiguration();
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            data.put("baseRequestMapping", tableNameConvertMappingPath(tableName));
+            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
+            data.put("tableName",tableName);
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
+            data.put("basePackage", "com.iolll.nicesome");
+
+            File file = new File(PROJECT_PATH + JAVA_PATH + packageConvertPath(FTLCONTROLLER_PACKAGE) + modelNameUpperCamel + "Controller.kt");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+
+            }
+            cfg.getTemplate("Kotlincontroller.ftl").process(data, new FileWriter(file));
+
+            System.out.println(modelNameUpperCamel + "Kotlincontroller.java 生成成功");
+            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+
+        } catch (Exception e) {
+            throw new RuntimeException("生成Kotlincontroller失败", e);
+        }
+    }
+
+
+    private static void getByFTL(String tableName,String ftl,String name) {
+        try {
+            freemarker.template.Configuration cfg = getConfiguration();
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            data.put("baseRequestMapping", tableNameConvertMappingPath(tableName));
+            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
+            data.put("tableName",tableName);
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
+            data.put("basePackage", "com.iolll.nicesome");
+
+            File file = new File(PROJECT_PATH + JAVA_PATH + packageConvertPath(FTLCONTROLLER_PACKAGE) + modelNameUpperCamel + name+".kt");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+
+            }
+            cfg.getTemplate(ftl+".ftl").process(data, new FileWriter(file));
+
+            System.out.println(modelNameUpperCamel + name+" 生成成功");
+            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+
+        } catch (Exception e) {
+            throw new RuntimeException("生成"+name+"r失败", e);
         }
     }
 
@@ -206,6 +267,7 @@ public class CodeGenerator {
             data.put("modelNameUpperCamel", modelNameUpperCamel);
             data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
             data.put("basePackage", BASE_PACKAGE);
+            data.put("apiUrl",APIURL);
             data.put("data", list);
 
             File file2 = new File(PROJECT_PATH + RESOURCES_PATH + HTML_PATH+ tableNameConvertLowerCamel(tableName) + "_admin.html");

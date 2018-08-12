@@ -32,11 +32,15 @@ public class PageController {
     }
 
     @GetMapping("/page/{model}/{page}")
-    public String gotoModelPage(@PathVariable("model") String model, @PathVariable("page") String page) {
+    public String gotoAdminModelPage(@PathVariable("model") String model, @PathVariable("page") String page) {
         return "/admin/"+model + "/" + page;
 
     }
+    @GetMapping("/ftl/{page}")
+    public String gotoModelPage( @PathVariable("page") String page) {
+        return  "ftl/" + page;
 
+    }
     @GetMapping("/login")
     public String login() {
         return "login_two_columns";

@@ -57,6 +57,24 @@ function goTo(url) {
         url = "";
     window.location.href = "/" + url;
 }
+var baseUrl = 'http://192.168.1.7:8080/';
+// var baseUrl = 'http://127.0.0.1:8080/';
+function ajaxx(type,url,data,success,error) {
+    $.ajax({
+        type: type,
+        contentType: "application/json",
+        url: baseUrl+url,
+        headers: {
+            "authorization": getToken()
+        },
+        data: data,
+        success:function (data) {
+            success(data);
+        },
+        error:error
+    });
+}
+
 
 var util = {
     serializeObject: function (form) {

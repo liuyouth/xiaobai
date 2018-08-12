@@ -13,7 +13,8 @@
 
     <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-
+    <!-- Toastr style -->
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 
@@ -190,16 +191,12 @@
                 <small class="font-bold"></small>
             </div>
             <div class="modal-body">
-                <form id="urlRecordForm" class="form-horizontal">
+                <form id="urlRecordForm" class="form-horizontal" onsubmit="return validateFrom();">
                     <p> // 选择参数类型填写对应的参数值 </p>
+                    <input type="reset" name="reset" style="display: none;" />
 
-
-
-
-
-
-
-
+                    <input type="hidden" placeholder="" name="id"
+                           class="form-control">
                     <div class="form-group row"><label
                             class="col-lg-2 col-form-label">forkNum</label>
 
@@ -208,11 +205,6 @@
                                    class="form-control">
                         </div>
                     </div>
-
-
-
-
-
 
 
                     <div class="form-group row"><label
@@ -225,11 +217,6 @@
                     </div>
 
 
-
-
-
-
-
                     <div class="form-group row"><label
                             class="col-lg-2 col-form-label">name</label>
 
@@ -238,11 +225,6 @@
                                    class="form-control">
                         </div>
                     </div>
-
-
-
-
-
 
 
                     <div class="form-group row"><label
@@ -255,11 +237,6 @@
                     </div>
 
 
-
-
-
-
-
                     <div class="form-group row"><label
                             class="col-lg-2 col-form-label">space</label>
 
@@ -268,11 +245,6 @@
                                    class="form-control">
                         </div>
                     </div>
-
-
-
-
-
 
 
                     <div class="form-group row"><label
@@ -285,11 +257,6 @@
                     </div>
 
 
-
-
-
-
-
                     <div class="form-group row"><label
                             class="col-lg-2 col-form-label">type</label>
 
@@ -298,11 +265,6 @@
                                    class="form-control">
                         </div>
                     </div>
-
-
-
-
-
 
 
                     <div class="form-group row"><label
@@ -315,11 +277,6 @@
                     </div>
 
 
-
-
-
-
-
                     <div class="form-group row"><label
                             class="col-lg-2 col-form-label">useNum</label>
 
@@ -328,11 +285,6 @@
                                    class="form-control">
                         </div>
                     </div>
-
-
-
-
-
 
 
                     <div class="form-group row"><label
@@ -345,26 +297,16 @@
                     </div>
 
 
-
-
-
-
-
                     <div class="input-group left">
 
                         <input type="text" name="isOpenAll"
                                placeholder="isOpenAll..."
                                class="form-control"/>
                         <span class="input-group-btn">
-                                                        <button type="button" id="addUrlRecord"
+                                                        <button type="submit"
                                                                 class="btn btn-primary">添加！</button>
                                                     </span>
                     </div>
-
-
-
-
-
 
 
                     <div class="clear"></div>
@@ -372,8 +314,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="$('urlRecordForm').submit();">Save changes
+                <button type="button" class="btn btn-white" data-dismiss="modal" id="modalCloseBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="$('#urlRecordForm').submit();">Save changes
                 </button>
             </div>
         </div>
@@ -432,7 +374,7 @@
                     data: "id",
                     "title": "ID",
                     defaultContent: "无"
-                    , width: "50px"
+                    , width: "10px"
                 },
 
                 {
@@ -444,7 +386,7 @@
                     data: "icon",
                     "title": "icon",
                     render: function (data, row) {
-                        return "<img class='' src='" + data + "'/>";
+                        return "<img class='url-icon' src='" + data + "'/>";
                     }
                 },
 
@@ -499,13 +441,21 @@
                     data: "user.name",
                     "title": "上传用户",
                 },
+                {
+                    data: "deleted",
+                    "title": "是否删除",
+                },
 
 
                 {
                     data: null,
                     title: "操作",
                     render: function (data, row) {
-                        return "<button class=\"btn btn-info btn-block \" type=\"button\" onclick='openModal(" + JSON.stringify(data) + ")' data-dataid='" + data.id + "' data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-edit\"></i></button>";
+                        return "<button class=\"btn btn-info  col-lg-6 \" style='    width: 38px;" +
+                            "    float: left;   ' type=\"button\" onclick='openModal(" + JSON.stringify(data) + ")' data-dataid='" + data.id + "' data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-edit\"></i></button>" +
+                            "<button class=\"btn btn-danger col-lg-6 \" style='    width: 38px;" +
+                            "    float: left;    margin-left: 5px;' type=\"button\" onclick='del("+ data.id+")' data-dataid='" + data.id + "' ><i class=\"fa fa-window-close\"></i></button>" +
+                            "";
                     }
                 },
 
@@ -522,31 +472,55 @@
     });
 
     function openModal(data) {
+        $("input[type=reset]").trigger("click");
         if (data !== null && data !== undefined) {
             $("#modalTitle").text("修改 ：" + data.name);
+            $("input[name='id']").val(data.id);
             util.fillFormData($("#urlRecordForm"), data);
-        } else
+        } else {
             $("#modalTitle").text("添加");
+            $("input[name='id']").val("");
+        }
     }
-
-    $('#addUrlRecord').on('click', function () {
-        console.log(getFormData($('#urlRecordForm')));
-        $.ajax({
-            type: "post",
-            contentType:"application/json",
-            url: "http://127.0.0.1:8080/urlrecord/",
-            headers: {
-                "authorization": getToken()
-            },
-            data: JSON.stringify( getFormData($('#urlRecordForm'))),
-            success: function (data) {
-                if (data.message == "SUCCESS") {
-                    model.ajax.reload();
-                }
-
+    function del(id) {
+        console.log(id)
+        ajaxx("delete","urlrecord/"+id,"",function (data) {
+            if (data.code===200){
+                toastr.success("删除成功！");
+                model.ajax.reload();
             }
         });
-    });
+    }
+    function validateFrom() {
+        console.log(getFormData($('#urlRecordForm')));
+        ajaxx("post","urlrecord/",JSON.stringify(getFormData($('#urlRecordForm'))),function (data) {
+            if (data.code === 200) {
+                $('#modalCloseBtn').click();
+                model.ajax.reload();
+            }
+        },function (data) {
+            toastr.error(data);
+        });
+        // $.ajax({
+        //     type: "post",
+        //     contentType: "application/json",
+        //     url: "http://127.0.0.1:8080/urlrecord/",
+        //     headers: {
+        //         "authorization": getToken()
+        //     },
+        //     data: JSON.stringify(getFormData($('#urlRecordForm'))),
+        //     success: function (data) {
+        //         if (data.code === 200) {
+        //             $('#modalCloseBtn').click();
+        //             model.ajax.reload();
+        //         }
+        //
+        //     }
+        // });
+        return false;
+    }
+
+
 
 
 </script>

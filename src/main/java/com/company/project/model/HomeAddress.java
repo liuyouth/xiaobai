@@ -2,41 +2,37 @@ package com.company.project.model;
 
 import javax.persistence.*;
 
-@Table(name = "url_record")
-public class UrlRecord {
+@Table(name = "home_address")
+public class HomeAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String address;
+
+    private Boolean deleted;
 
     @Column(name = "fork_num")
     private Integer forkNum;
 
     private String icon;
 
-    private String name;
-
     @Column(name = "open_all")
     private Boolean openAll;
-
-    private String space;
 
     @Column(name = "star_num")
     private Integer starNum;
 
     private String type;
 
-    private String url;
+    @Column(name = "type_name")
+    private String typeName;
 
     @Column(name = "use_num")
     private Integer useNum;
 
     @Column(name = "user_id")
     private Long userId;
-
-    @Column(name = "is_open_all")
-    private Boolean isOpenAll;
-
-    private Boolean deleted;
 
     /**
      * @return id
@@ -50,6 +46,34 @@ public class UrlRecord {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @return address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return deleted
+     */
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    /**
+     * @param deleted
+     */
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 
     /**
@@ -81,20 +105,6 @@ public class UrlRecord {
     }
 
     /**
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * @return open_all
      */
     public Boolean getOpenAll() {
@@ -106,20 +116,6 @@ public class UrlRecord {
      */
     public void setOpenAll(Boolean openAll) {
         this.openAll = openAll;
-    }
-
-    /**
-     * @return space
-     */
-    public String getSpace() {
-        return space;
-    }
-
-    /**
-     * @param space
-     */
-    public void setSpace(String space) {
-        this.space = space;
     }
 
     /**
@@ -151,17 +147,17 @@ public class UrlRecord {
     }
 
     /**
-     * @return url
+     * @return type_name
      */
-    public String getUrl() {
-        return url;
+    public String getTypeName() {
+        return typeName;
     }
 
     /**
-     * @param url
+     * @param typeName
      */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     /**
@@ -190,33 +186,5 @@ public class UrlRecord {
      */
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    /**
-     * @return is_open_all
-     */
-    public Boolean getIsOpenAll() {
-        return isOpenAll;
-    }
-
-    /**
-     * @param isOpenAll
-     */
-    public void setIsOpenAll(Boolean isOpenAll) {
-        this.isOpenAll = isOpenAll;
-    }
-
-    /**
-     * @return deleted
-     */
-    public Boolean getDeleted() {
-        return deleted;
-    }
-
-    /**
-     * @param deleted
-     */
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
     }
 }

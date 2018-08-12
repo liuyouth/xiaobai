@@ -17,5 +17,6 @@
     <result column="use_num" jdbcType="INTEGER" property="useNum" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="is_open_all" jdbcType="BIT" property="isOpenAll" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
 </mapper>

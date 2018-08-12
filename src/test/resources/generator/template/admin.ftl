@@ -129,8 +129,8 @@
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
-                                <a class="collapse-link">
-                                <i class="fa fa-plus-square-o" onclick="openModal()" data-toggle="modal" data-target="#myModal"></i>
+                                <a onclick="openModal()" data-toggle="modal" data-target="#myModal">
+                                    <i class="fa fa-plus-square-o"></i>
                                 </a>
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i class="fa fa-wrench"></i>
@@ -189,7 +189,11 @@
                 <small class="font-bold"></small>
             </div>
             <div class="modal-body">
-                <form id="${modelNameLowerCamel}Form" class="form-horizontal">
+                <form id="${modelNameLowerCamel}Form" class="form-horizontal" onsubmit="return validateFrom();">
+                    <input type="reset" name="reset" style="display: none;" />
+
+                    <input type="hidden" placeholder="" name="id"
+                           class="form-control">
                     <p> // 选择参数类型填写对应的参数值 </p>
                                     <#list 0..(data!?size-1) as i>
                                         <#switch i>
@@ -204,7 +208,7 @@
                                                        placeholder="${data[i].name!}..."
                                                        class="form-control"/>
                                                 <span class="input-group-btn">
-                                                        <button type="button" id="add${modelNameUpperCamel}"
+                                                        <button type="submit" id="add${modelNameUpperCamel}"
                                                                 class="btn btn-primary">添加！</button>
                                                     </span>
                                             </div>
@@ -233,8 +237,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="$('${modelNameLowerCamel}Form').submit();" >Save changes</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal" id="modalCloseBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="$('#${modelNameLowerCamel}Form').submit();" >Save changes</button>
             </div>
         </div>
     </div>
@@ -256,9 +260,12 @@
 <script src="../js/plugins/typehead/bootstrap3-typeahead.min.js"></script>
 <!-- Data picker -->
 <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
-
+<!-- Toastr script -->
+<script src="../js/plugins/toastr/toastr.min.js"></script>
+<script src="../js/common.js"></script><!-- Toastr script -->
 <!-- Page-Level Scripts -->
 <script>
+
     var ${modelNameLowerCamel};
     $(document).ready(function () {
         $('#data_1 .input-group.date').datepicker({
@@ -273,7 +280,7 @@
         model = $('.dataTables-${modelNameLowerCamel}').DataTable({
             select: true,
             ajax: {
-                "url": '${baseRequestMapping}/list'
+                "url": baseUrl+'${baseRequestMapping}/list'
             },
             columns: [
 
@@ -298,9 +305,14 @@
                     data: null,
                     title: "操作",
                     render: function (data, row) {
-                        return "<button class=\"btn btn-info btn-block \" type=\"button\" onclick='openModal("+JSON.stringify(data)+")' data-dataid='"+data.id+"' data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-edit\"></i></button>";
+                        return "<button class=\"btn btn-info  col-lg-6 \" style='    width: 38px;" +
+                                "    float: left;   ' type=\"button\" onclick='openModal(" + JSON.stringify(data) + ")' data-dataid='" + data.id + "' data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-edit\"></i></button>" +
+                                "<button class=\"btn btn-danger col-lg-6 \" style='    width: 38px;" +
+                                "    float: left;    margin-left: 5px;' type=\"button\" onclick='del("+ data.id+")' data-dataid='" + data.id + "' ><i class=\"fa fa-window-close\"></i></button>" +
+                                "";
                     }
                 },
+
 
 
             ],
@@ -312,26 +324,43 @@
     });
 
     function openModal(data) {
-        if (data!==null && data!== undefined) {
+
+        $("input[type=reset]").trigger("click");
+        if (data !== null && data !== undefined) {
             $("#modalTitle").text("修改 ：" + data.name);
+            $("input[name='id']").val(data.id);
             util.fillFormData($("#${modelNameLowerCamel}Form"), data);
-        }else
+        } else {
             $("#modalTitle").text("添加");
+            $("input[name='id']").val("");
+        }
     }
 
-    $('#add${modelNameUpperCamel}').on('click', function () {
-        console.log($('#${modelNameLowerCamel}Form').serialize());
-        $.ajax({
-            type: "post",
-            url: "${baseRequestMapping}/add",
-            data: $('#${modelNameLowerCamel}Form').serialize(),
-            success: function (data) {
-                if (data.message == "SUCCESS") {
-                    model.ajax.reload();
-                }
+
+
+    function del(id) {
+        console.log(id)
+        ajaxx("delete","${baseRequestMapping}/"+id,"",function (data) {
+            if (data.code===200){
+                toastr.success("删除成功！");
+                model.ajax.reload();
             }
         });
-    });
+    }
+    function validateFrom() {
+        console.log(getFormData($('#${modelNameLowerCamel}Form')));
+        ajaxx("post","${baseRequestMapping}/",JSON.stringify(getFormData($('#${modelNameLowerCamel}Form'))),function (data) {
+            if (data.code === 200) {
+                $('#modalCloseBtn').click();
+                model.ajax.reload();
+            }
+        },function (data) {
+            toastr.error(data);
+        });
+
+        return false;
+    }
+
 
 
 </script>
